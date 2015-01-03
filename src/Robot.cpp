@@ -1,57 +1,57 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
+#include "Commands/TeleopDrive.h"
 #include "CommandBase.h"
 
-class Robot: public IterativeRobot
-{
-private:
-	Command *autonomousCommand;
-	LiveWindow *lw;
+/* 
+ *	Team 1740
+ *	2015 Code
+ *	Programming Staff:
+ *	Lord Kevin "Hjax" Konrad: High Overlord of Programming and Python / C++ grand master
+ *	Sire Henry Crain: Majordomo of Programming and Python / C++ master
+ *	Lady Allison "armadillokake" Konrad: Queen of the Armadillos and C++ n00b
+ *	Sir Jonathan Lei: Python / C++ dude
+ *	Our Lord, Charles Estabrooks: Programming God and C / C++ savior
+ *	Brian Healy the Eternal Champion: Programming God and Labview / TI-89 grand master
+ */
 
-	void RobotInit()
-	{
+class CommandBasedRobot : public IterativeRobot {
+private:
+//	Command *autonomousCommand;
+	Command *TeleopCommand;
+	LiveWindow *lw;
+	
+	virtual void RobotInit() {
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
+//		autonomousCommand = new ExampleCommand();
+//		TeleopCommand = new TeleopDrive();
 		lw = LiveWindow::GetInstance();
 	}
 	
-	void DisabledPeriodic()
-	{
+	virtual void AutonomousInit() {
+//		autonomousCommand->Start();
+	}
+	
+	virtual void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
-
-	void AutonomousInit()
-	{
-		if (autonomousCommand != NULL)
-			autonomousCommand->Start();
-	}
-
-	void AutonomousPeriodic()
-	{
-		Scheduler::GetInstance()->Run();
-	}
-
-	void TeleopInit()
-	{
+	
+	virtual void TeleopInit() {
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != NULL)
-			autonomousCommand->Cancel();
+//		autonomousCommand->Cancel();
 	}
-
-	void TeleopPeriodic()
-	{
+	
+	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
-
-	void TestPeriodic()
-	{
+	
+	virtual void TestPeriodic() {
 		lw->Run();
 	}
 };
 
-START_ROBOT_CLASS(Robot);
+START_ROBOT_CLASS(CommandBasedRobot);
 
