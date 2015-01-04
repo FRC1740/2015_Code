@@ -8,7 +8,7 @@ TeleopDrive::TeleopDrive() {
 // Called just before this Command runs the first time
 void TeleopDrive::Initialize() {
 	// we would need to read the drive mode from the smart dashboard
-	DriveMode = StandardTankMode;
+	DriveMode = SmartDashboard::GetNumber("Drive Mode", StandardTankMode);
 }
 
 // Called repeatedly when this Command is scheduled to run
