@@ -2,6 +2,7 @@
 
 TeleopDrive::TeleopDrive() {
 	Requires(drivetrain); // lowercase drivetrain since that is how it is declared in CommandBase.h
+	DriveMode = StandardTankMode;
 }
 
 // Called just before this Command runs the first time

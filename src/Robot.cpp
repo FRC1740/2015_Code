@@ -20,9 +20,11 @@ private:
 //	Command *autonomousCommand;
 	Command *TeleopCommand;
 	LiveWindow *lw;
+
 	
 	virtual void RobotInit() {
 		CommandBase::init();
+		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it
 //		autonomousCommand = new ExampleCommand();
 //		TeleopCommand = new TeleopDrive();
 		lw = LiveWindow::GetInstance();
