@@ -21,7 +21,7 @@
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
-	Command *TeleopCommand;
+//	Command *TeleopCommand;
 	LiveWindow *lw;
 
 	
@@ -31,6 +31,7 @@ private:
 		autonomousCommand = new Autonomous();
 //		TeleopCommand = new TeleopDrive();
 		lw = LiveWindow::GetInstance();
+		printf("Starting robot!\n");
 //	    SmartDashboard::PutData(drivetrain); i saw 190 doing this but it throws errors
 	}
 	
@@ -47,7 +48,8 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-//		autonomousCommand->Cancel();
+		autonomousCommand->Cancel();
+//		TeleopCommand->Start();
 	}
 	
 	virtual void TeleopPeriodic() {

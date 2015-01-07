@@ -20,6 +20,7 @@ void DriveTrain::StandardTankDrive(float input_left, float input_right){
 	rear_left_motor->Set(input_left);
 	front_right_motor->Set(input_right);
 	rear_right_motor->Set(input_right);
+	printf("doing standard drive!\n");
 }
 void DriveTrain::MecanumTankDrive(float input_left_x, float input_left_y, float input_right_x, float input_right_y){
 	front_right_motor->Set(input_right_y + input_right_x);

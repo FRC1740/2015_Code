@@ -2,13 +2,14 @@
 
 TeleopDrive::TeleopDrive() {
 	Requires(drivetrain); // lowercase drivetrain since that is how it is declared in CommandBase.h
-	DriveMode = StandardTankMode;
+	DriveMode = ThreeAxisMode;
 }
 
 // Called just before this Command runs the first time
 void TeleopDrive::Initialize() {
 	// we would need to read the drive mode from the smart dashboard
-	DriveMode = SmartDashboard::GetNumber("DriveMode", StandardTankMode);
+//	DriveMode = SmartDashboard::GetNumber("DriveMode");
+	printf("starting teleop command!\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
