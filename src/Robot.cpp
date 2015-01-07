@@ -1,7 +1,10 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/TeleopDrive.h"
+#include "Commands/Autonomous.h"
 #include "CommandBase.h"
+
+// DriveTrain* CommandBase::drivetrain = NULL;
 
 /* 
  *	Team 1740
@@ -17,7 +20,7 @@
 
 class CommandBasedRobot : public IterativeRobot {
 private:
-//	Command *autonomousCommand;
+	Command *autonomousCommand;
 	Command *TeleopCommand;
 	LiveWindow *lw;
 
@@ -25,13 +28,14 @@ private:
 	virtual void RobotInit() {
 		CommandBase::init();
 		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it
-//		autonomousCommand = new ExampleCommand();
+		autonomousCommand = new Autonomous();
 //		TeleopCommand = new TeleopDrive();
 		lw = LiveWindow::GetInstance();
+//	    SmartDashboard::PutData(drivetrain); i saw 190 doing this but it throws errors
 	}
 	
 	virtual void AutonomousInit() {
-//		autonomousCommand->Start();
+		autonomousCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
