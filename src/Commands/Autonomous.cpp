@@ -1,38 +1,38 @@
-#include "ExampleCommand.h"
+#include "Autonomous.h"
 
-ExampleCommand::ExampleCommand()
+Autonomous::Autonomous()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 }
 
 // Called just before this Command runs the first time
-void ExampleCommand::Initialize()
+void Autonomous::Initialize()
 {
-
+	SetTimeout(3);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute()
+void Autonomous::Execute()
 {
-
+	drivetrain->StandardTankDrive(1.0,1.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished()
+bool Autonomous::IsFinished()
 {
-	return false;
+	return IsTimedOut();
 }
 
 // Called once after isFinished returns true
-void ExampleCommand::End()
+void Autonomous::End()
 {
-
+	drivetrain->StandardTankDrive(0,0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ExampleCommand::Interrupted()
+void Autonomous::Interrupted()
 {
-
+	drivetrain->StandardTankDrive(0,0);
 }

@@ -3,12 +3,18 @@
 
 #include "WPILib.h"
 
-class OI
-{
+// currently set up for 2 joystick tank, add more features later!
+
+
+class OI {
 private:
 
 public:
 	OI();
+	Joystick *joystick_1;
+	Joystick *joystick_2;
+	Joystick *joystick_3;
+
 };
 
 #endif

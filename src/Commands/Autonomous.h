@@ -1,13 +1,13 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#ifndef Autonomous_H
+#define Autonomous_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ExampleCommand: public CommandBase
+class Autonomous: public CommandBase
 {
 public:
-	ExampleCommand();
+	Autonomous();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
