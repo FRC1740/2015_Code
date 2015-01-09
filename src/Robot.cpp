@@ -1,10 +1,11 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/TeleopDrive.h"
+#include "Commands/StandardTankDrive.h"
+#include "Commands/MecanumTankDrive.h"
+#include "Commands/ThreeAxisDrive.h"
 #include "Commands/Autonomous.h"
 #include "CommandBase.h"
 
-// DriveTrain* CommandBase::drivetrain = NULL;
 
 /* 
  *	Team 1740
@@ -21,18 +22,29 @@
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
-//	Command *TeleopCommand;
+	Command *teleopcommand;
 	LiveWindow *lw;
+
+	SendableChooser *drivemodechooser;
 
 	
 	virtual void RobotInit() {
 		CommandBase::init();
-		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it
+		printf("start of init\n");
+		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
+
+		drivemodechooser = new SendableChooser();
+
+		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
+		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
+		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive());
+		SmartDashboard::PutData("Drive Mode", drivemodechooser);
+		printf("added objects\n");
 		autonomousCommand = new Autonomous();
-//		TeleopCommand = new TeleopDrive();
+
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
-//	    SmartDashboard::PutData(drivetrain); i saw 190 doing this but it throws errors
+
 	}
 	
 	virtual void AutonomousInit() {
@@ -44,12 +56,10 @@ private:
 	}
 	
 	virtual void TeleopInit() {
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to 
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
+		printf("init teleop\n");
 		autonomousCommand->Cancel();
-//		TeleopCommand->Start();
+		teleopcommand = (Command *) drivemodechooser->GetSelected();
+		teleopcommand->Start();
 	}
 	
 	virtual void TeleopPeriodic() {
