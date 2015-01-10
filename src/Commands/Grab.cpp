@@ -4,7 +4,7 @@ Grab::Grab()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(Gripper);
+	Requires(gripper);
 }
 
 // Called just before this Command runs the first time

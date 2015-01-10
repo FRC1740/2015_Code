@@ -2,6 +2,8 @@
 #include "Commands/Command.h"
 #include "Commands/TeleopDrive.h"
 #include "Commands/Autonomous.h"
+#include "Commands/Grab.h"
+#include "Commands/Release.h"
 #include "CommandBase.h"
 
 // DriveTrain* CommandBase::drivetrain = NULL;
@@ -25,7 +27,7 @@ private:
 	LiveWindow *lw;
 	Compressor *compressor;
 	Command *grabCommand, *releaseCommand;
-//	Command *Release;
+
 	
 	virtual void RobotInit() {
 		CommandBase::init();
@@ -35,10 +37,10 @@ private:
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
 //	    SmartDashboard::PutData(drivetrain); // i saw 190 doing this but it throws errors
+
 		compressor = new Compressor();
 		compressor->Start();
-		grabCommand = new Grab();
-		releaseCommand = new Release();
+
 	}
 	
 	virtual void AutonomousInit() {
