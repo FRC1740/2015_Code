@@ -4,6 +4,8 @@
 #include "Commands/MecanumTankDrive.h"
 #include "Commands/ThreeAxisDrive.h"
 #include "Commands/Autonomous.h"
+#include "Commands/Grab.h"
+#include "Commands/Release.h"
 #include "CommandBase.h"
 
 
@@ -24,6 +26,8 @@ private:
 	Command *autonomousCommand;
 	Command *teleopcommand;
 	LiveWindow *lw;
+	Compressor *compressor;
+	Command *grabCommand, *releaseCommand;
 
 	SendableChooser *drivemodechooser;
 
@@ -44,6 +48,9 @@ private:
 
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
+
+		compressor = new Compressor();
+		compressor->Start();
 
 	}
 	
