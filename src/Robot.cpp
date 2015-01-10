@@ -23,7 +23,9 @@ private:
 	Command *autonomousCommand;
 //	Command *TeleopCommand;
 	LiveWindow *lw;
-
+	Compressor *compressor;
+	Command *grabCommand, *releaseCommand;
+//	Command *Release;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
@@ -32,7 +34,11 @@ private:
 //		TeleopCommand = new TeleopDrive();
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
-//	    SmartDashboard::PutData(drivetrain); i saw 190 doing this but it throws errors
+//	    SmartDashboard::PutData(drivetrain); // i saw 190 doing this but it throws errors
+		compressor = new Compressor();
+		compressor->Start();
+		grabCommand = new Grab();
+		releaseCommand = new Release();
 	}
 	
 	virtual void AutonomousInit() {

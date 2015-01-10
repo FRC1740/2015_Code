@@ -14,5 +14,8 @@
 #define rear_left_motor_port 2
 #define rear_right_motor_port 3
 
+// Pneumatic port configuration
+#define CYLINDER_PORT0 0 // Gripper solenoid wired to port 0 on pneumatic break-out card
+#define CYLINDER_PORT1 1 // Release solenoid wired to port 1 on pneumatic break-out card
 
 #endif
