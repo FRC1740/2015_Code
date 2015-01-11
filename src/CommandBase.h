@@ -4,6 +4,7 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Gripper.h"
+#include "Subsystems/Lifter.h"
 #include "OI.h"
 
 
@@ -20,6 +21,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *drivetrain;
 	static Gripper *gripper;
+	static Lifter *lifter;
 	static OI *oi;
 };
 
