@@ -6,6 +6,8 @@
 #include "Commands/Autonomous.h"
 #include "Commands/Grab.h"
 #include "Commands/Release.h"
+#include "Commands/Raise.h"
+#include "Commands/Lower.h"
 #include "CommandBase.h"
 
 
@@ -27,7 +29,7 @@ private:
 	Command *teleopcommand;
 	LiveWindow *lw;
 	Compressor *compressor;
-	Command *grabCommand, *releaseCommand;
+	Command *grabCommand, *releaseCommand, *raiseCommand, *lowerCommand;
 
 	SendableChooser *drivemodechooser;
 
