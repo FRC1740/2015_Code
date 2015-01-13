@@ -2,37 +2,30 @@
 
 Autonomous::Autonomous()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(drivetrain);  // auto requires exclusive access to the drive train
 }
 
-// Called just before this Command runs the first time
-void Autonomous::Initialize()
+void Autonomous::Initialize() // called once when the command starts
 {
 	SetTimeout(3);
 }
 
-// Called repeatedly when this Command is scheduled to run
-void Autonomous::Execute()
+void Autonomous::Execute()  // called every ~20ms while the command is running
 {
 	drivetrain->Go(1.0,1.0,1.0,1.0);
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool Autonomous::IsFinished()
+bool Autonomous::IsFinished()  // return true to end the command
 {
 	return IsTimedOut();
 }
 
-// Called once after isFinished returns true
-void Autonomous::End()
+void Autonomous::End() // called once when the command ends
 {
 	drivetrain->Stop();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void Autonomous::Interrupted()
+void Autonomous::Interrupted()  // called when command is interrupted (something else tries to use the same subsystem)
 {
 	drivetrain->Stop();
 }

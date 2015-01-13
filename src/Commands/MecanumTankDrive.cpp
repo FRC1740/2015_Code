@@ -2,12 +2,12 @@
 
 MecanumTankDrive::MecanumTankDrive()
 {
-	Requires(drivetrain);
+	Requires(drivetrain);  // obviously drive modes need exclusive drivetrain access
 }
 
 void MecanumTankDrive::Initialize()
 {
-
+	return;
 }
 
 void MecanumTankDrive::Execute()
@@ -18,7 +18,6 @@ void MecanumTankDrive::Execute()
 	drivetrain->rear_left_motor->Set(oi->joystick_1->GetY() + oi->joystick_1->GetX());
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool MecanumTankDrive::IsFinished()
 {
 	return false;
