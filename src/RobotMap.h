@@ -18,6 +18,6 @@
 #define CYLINDER_PORT0 0 // Gripper solenoid wired to port 0 on pneumatic break-out card
 #define CYLINDER_PORT1 1 // Release solenoid wired to port 1 on pneumatic break-out card
 
-#define RANGEFINDER_CHANNEL 6
+#define RANGEFINDER_CHANNEL 0
 
 #endif

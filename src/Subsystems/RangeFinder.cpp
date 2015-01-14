@@ -13,7 +13,7 @@ void RangeFinder::InitDefaultCommand()
 
 float RangeFinder::GetVoltage()
 {
-	rangefinder->SetAverageBits(2);
+	rangefinder->SetAverageBits(4);
 	return rangefinder->GetAverageVoltage();
 }
 
