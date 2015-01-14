@@ -18,12 +18,12 @@ void Lifter::InitDefaultCommand()
 // here. Call these from Commands.
 void Lifter::Raise()
 {
-	liftMotor->Set(1);
+	liftMotor->Set(.2);
 }
 
 void Lifter::Lower()
 {
-	liftMotor->Set(-1);
+	liftMotor->Set(-.2);
 
 }
 void Lifter::Stop()
@@ -32,11 +32,11 @@ void Lifter::Stop()
 }
 void Lifter::TiltForward()
 {
-	tiltMotor->Set(.5);
+	tiltMotor->Set(.1);
 }
 void Lifter::TiltBack()
 {
-	tiltMotor->Set(-.5);
+	tiltMotor->Set(-.1);
 }
 void Lifter::TiltStop()
 {

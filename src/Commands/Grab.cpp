@@ -2,30 +2,38 @@
 
 Grab::Grab()
 {
-	Requires(gripper);  // grab needed exclusive access to pneumatic gripper
+	// Use Requires() here to declare subsystem dependencies
+	// eg. Requires(chassis);
+	Requires(gripper);
 }
 
-void Grab::Initialize()  // called once when the command starts
+// Called just before this Command runs the first time
+void Grab::Initialize()
 {
 	gripper->Grab();
 }
 
-void Grab::Execute()  // called every ~20 ms while the command is running
+// Called repeatedly when this Command is scheduled to run
+void Grab::Execute()
 {
 	return;
 }
 
-bool Grab::IsFinished()  // return true when the command is completed
+// Make this return true when this Command no longer needs to run execute()
+bool Grab::IsFinished()
 {
 	return true;
 }
 
-void Grab::End()  // called once after IsFinished() returns true
+// Called once after isFinished returns true
+void Grab::End()
 {
 	return;
 }
 
-void Grab::Interrupted()  // called once if the command is interrupted (command then terminates)
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void Grab::Interrupted()
 {
 	return;
 }
