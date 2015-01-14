@@ -3,6 +3,7 @@
 #include "Commands/StandardTankDrive.h"
 #include "Commands/MecanumTankDrive.h"
 #include "Commands/ThreeAxisDrive.h"
+#include "Commands/XBoxDrive.h"
 #include "Commands/Autonomous.h"
 #include "Commands/Grab.h"
 #include "Commands/Release.h"
@@ -44,6 +45,7 @@ private:
 		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
 		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
 		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive());
+		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
 		printf("added objects\n");
 		autonomousCommand = new Autonomous();
@@ -52,11 +54,12 @@ private:
 		printf("Starting robot!\n");
 
 		compressor = new Compressor();
-		compressor->Start();
 
 	}
 	
 	virtual void AutonomousInit() {
+
+		compressor->Start();
 		autonomousCommand->Start();
 	}
 	
@@ -66,6 +69,7 @@ private:
 	
 	virtual void TeleopInit() {
 		printf("init teleop\n");
+
 		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();

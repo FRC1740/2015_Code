@@ -5,6 +5,7 @@
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Gripper.h"
 #include "Subsystems/Lifter.h"
+#include "Subsystems/RangeFinder.h"
 #include "OI.h"
 
 
@@ -23,6 +24,7 @@ public:
 	static Gripper *gripper;
 	static Lifter *lifter;
 	static OI *oi;
+	static RangeFinder *rangefinder;
 };
 
 #endif

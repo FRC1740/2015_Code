@@ -12,6 +12,7 @@ CommandBase::CommandBase() : Command() {
 DriveTrain* CommandBase::drivetrain = NULL;
 Gripper* CommandBase::gripper = NULL;
 Lifter* CommandBase::lifter = NULL;
+RangeFinder* CommandBase::rangefinder = NULL;
 OI* CommandBase::oi = NULL;
 
 void CommandBase::init() {
@@ -21,5 +22,6 @@ void CommandBase::init() {
 	SmartDashboard::PutData(drivetrain); // i saw 190 doing this, looks neat
 	gripper = new Gripper(); // Grab, Release Forks
 	lifter = new Lifter(); // Raise, lower, tilt forks
+	rangefinder = new RangeFinder(); // find distances!
 	oi = new OI();
 }
