@@ -1,0 +1,29 @@
+Indentation:
+	- 4 Spaces = 1 Tab
+	- Indent one tab for each level of brackets surround the code
+	eg:
+	Class Robot {
+		void someFunction(void) {
+			print("hi");
+		}
+	}
+
+Functions:
+	- Functions that are supposed to be empty should have a "return;" so it is clear that no code is missing
+	- The open bracket "{" goes on the same line as the function declaration, the closing bracket "}" goes on the line following the last line of code
+	- One space between the end of the function declaration and the "{"
+	- Function names should be in CamelCase (first letter of each word capitalized)
+	- There should be one line between the "}" of the old function and the function declaration of the next function
+	void UselessFunction(void) {
+		return;
+	}
+Comments:
+	- Comments that are more than one line should have their own line and come before the lines of code they are commenting on
+	- Comments that are only one line share a line with the first line of the code they comment on
+Objects:
+	- When a class represents a singular physical object, give it the same name as the original class in all lowercase,
+		seperated by underscores eg "DriveTrain* drivetrain"
+	- Use pointers!
+	- When there will be multiple instances of the same class (eg joysticks and motors) name them clearly, in all lowercase, with underscores seperating words
+		eg "front_right_motor" "joystick_1"
+

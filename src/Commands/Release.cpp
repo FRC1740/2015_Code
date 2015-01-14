@@ -17,7 +17,7 @@ void Release::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Release::Execute()
 {
-
+	return;
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -29,12 +29,12 @@ bool Release::IsFinished()
 // Called once after isFinished returns true
 void Release::End()
 {
-
+	return;
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Release::Interrupted()
 {
-
+	return;
 }
