@@ -53,6 +53,9 @@ private:
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
 
+		CameraServer::GetInstance()->SetQuality(50);
+		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+
 		compressor = new Compressor();
 
 	}
