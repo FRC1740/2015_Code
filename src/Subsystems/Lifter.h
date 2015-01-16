@@ -18,8 +18,8 @@ public:
 	void Raise();
 	void Lower();
 	void Stop();
-	void TiltForward();
-	void TiltBack();
+	// The following methods are for testing and probably won't be employed in the 2015 'bot
+	void Tilt(double speed);
 	void TiltStop();
 	void StopAll();
 };

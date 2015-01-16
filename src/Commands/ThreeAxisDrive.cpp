@@ -12,10 +12,11 @@ void ThreeAxisDrive::Initialize()
 
 void ThreeAxisDrive::Execute()
 {
-	drivetrain->front_right_motor->Set(oi->joystick_3->GetY() + oi->joystick_3->GetX() + oi->joystick_3->GetTwist());
-	drivetrain->rear_right_motor->Set(oi->joystick_3->GetY() - oi->joystick_3->GetX() + oi->joystick_3->GetTwist());
-	drivetrain->front_left_motor->Set(oi->joystick_3->GetY() - oi->joystick_3->GetX() - oi->joystick_3->GetTwist());
-	drivetrain->rear_left_motor->Set(oi->joystick_3->GetY() + oi->joystick_3->GetX() - oi->joystick_3->GetTwist());
+
+	drivetrain->front_left_motor->Set(oi->joystick_3->GetTwist() - oi->joystick_3->GetY() - oi->joystick_3->GetX());
+	drivetrain->front_right_motor->Set(oi->joystick_3->GetTwist() + oi->joystick_3->GetY() + oi->joystick_3->GetX());
+	drivetrain->rear_left_motor->Set(oi->joystick_3->GetTwist() - oi->joystick_3->GetY() + oi->joystick_3->GetX());
+	drivetrain->rear_right_motor->Set(oi->joystick_3->GetTwist() + oi->joystick_3->GetY() - oi->joystick_3->GetX());
 }
 
 // Make this return true when this Command no longer needs to run execute()

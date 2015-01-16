@@ -1,5 +1,6 @@
 #include "Lifter.h"
 #include "../RobotMap.h"
+#include "../Commands/SetTilt.h"
 
 Lifter::Lifter() :
 		Subsystem("Lifter")
@@ -11,7 +12,7 @@ Lifter::Lifter() :
 void Lifter::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new SetTilt());
 }
 
 // Put methods for controlling this subsystem
@@ -30,13 +31,9 @@ void Lifter::Stop()
 {
 	liftMotor->Set(0);
 }
-void Lifter::TiltForward()
+void Lifter::Tilt(double speed)
 {
-	tiltMotor->Set(.1);
-}
-void Lifter::TiltBack()
-{
-	tiltMotor->Set(-.1);
+	tiltMotor->Set(speed);
 }
 void Lifter::TiltStop()
 {
