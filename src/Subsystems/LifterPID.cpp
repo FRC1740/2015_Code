@@ -6,14 +6,14 @@
 LifterPID::LifterPID() :
 		PIDSubsystem("LifterPID", 1.0, 0, 0)
 {
-	lifterEncoder = new Encoder(6, 5); // FIXME pick actual port values
-	lifterMotor = new Victor(4);
-	upperLimit = new DigitalInput(0);
-	lowerLimit = new DigitalInput(1);
+	lifterEncoder = new Encoder(LIFTER_ENCODER_PORT_0, LIFTER_ENCODER_PORT_1); // FIXME pick actual port values
+	lifterMotor = new Victor(LIFTER_MOTOR_PORT);
+	upperLimit = new DigitalInput(UPPER_LIMIT_PORT);
+	lowerLimit = new DigitalInput(LOWER_LIMIT_PORT);
 	SmartDashboard::PutNumber("Encoder", lifterEncoder->Get()); // ktk - not sure if this auto updates
 	SetSetpoint(360);
 	lifterEncoder->Reset();
-	Enable();
+//	Enable();
 }
 
 double LifterPID::ReturnPIDInput()
