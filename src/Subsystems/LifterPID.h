@@ -8,7 +8,6 @@ class LifterPID: public PIDSubsystem
 {
 private:
 	Encoder* lifterEncoder;
-	Victor* lifterMotor;
 	DigitalInput* upperLimit;
 	DigitalInput* lowerLimit;
 public:
@@ -18,6 +17,7 @@ public:
 	void InitDefaultCommand();
 	void UpdateSetPoint(double input);
 	void Reset(void);
+	Victor* lifterMotor;
 };
 
 #endif
