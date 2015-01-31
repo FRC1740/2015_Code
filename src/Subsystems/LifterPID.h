@@ -17,7 +17,8 @@ public:
 	void InitDefaultCommand();
 	void UpdateSetPoint(double input);
 	void Reset(void);
-	Victor* lifterMotor;
+//	Victor* lifterMotor;
+	CANTalon* lifterMotor;
 };
 
 #endif

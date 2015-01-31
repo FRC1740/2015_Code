@@ -1,5 +1,5 @@
 #include "ThreeAxisDrive.h"
-
+#include "math.h"
 ThreeAxisDrive::ThreeAxisDrive()
 {
 	Requires(drivetrain);
@@ -15,11 +15,19 @@ void ThreeAxisDrive::Execute()
 
 	// The drivetrain->Go() method has built in handling for reversing motors on the left side...
 	/* */
-	float fl = oi->joystick_3->GetY() - oi->joystick_3->GetTwist() + oi->joystick_3->GetX(); // Front Left Wheel
-	float fr = oi->joystick_3->GetY() + oi->joystick_3->GetTwist() - oi->joystick_3->GetX(); // Front Right Wheel
-	float rl = oi->joystick_3->GetY() - oi->joystick_3->GetTwist() - oi->joystick_3->GetX(); // Rear Left Wheel
-	float rr = oi->joystick_3->GetY() + oi->joystick_3->GetTwist() + oi->joystick_3->GetX(); // Rear Right Wheel
-
+	float fl, fr, rl, rr;
+	if (abs(oi->joystick_3->GetY()) > .1 || abs(oi->joystick_3->GetX()) > .1 || abs(oi->joystick_3->GetTwist()) > .1){
+		fl = oi->joystick_3->GetY() - oi->joystick_3->GetTwist() + oi->joystick_3->GetX(); // Front Left Wheel
+		fr = oi->joystick_3->GetY() + oi->joystick_3->GetTwist() - oi->joystick_3->GetX(); // Front Right Wheel
+		rl = oi->joystick_3->GetY() - oi->joystick_3->GetTwist() - oi->joystick_3->GetX(); // Rear Left Wheel
+		rr = oi->joystick_3->GetY() + oi->joystick_3->GetTwist() + oi->joystick_3->GetX(); // Rear Right Wheel
+	}
+	else {
+		fl = 0;
+		fr = 0;
+		rl = 0;
+		rr = 0;
+	}
 	drivetrain->Go(fl,fr,rl,rr);
 
 	/*
