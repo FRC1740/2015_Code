@@ -7,8 +7,6 @@
 #include "Commands/Autonomous.h"
 #include "Commands/Grab.h"
 #include "Commands/Release.h"
-#include "Commands/Raise.h"
-#include "Commands/Lower.h"
 #include "CommandBase.h"
 
 
@@ -53,7 +51,8 @@ private:
 		lw = LiveWindow::GetInstance();
 		printf("Starting robot!\n");
 
-		CameraServer::GetInstance()->SetQuality(50);
+
+		CameraServer::GetInstance()->SetQuality(100);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
 		compressor = new Compressor();

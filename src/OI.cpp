@@ -1,8 +1,6 @@
 #include "OI.h"
 #include "Commands/Grab.h"
 #include "Commands/Release.h"
-#include "Commands/Raise.h"
-#include "Commands/Lower.h"
 #include "Commands/PrintRange.h"
 
 OI::OI() {
@@ -46,8 +44,5 @@ OI::OI() {
     j9->WhenPressed(new Grab());
     j11->WhenPressed(new Release());
 
-    // Lifter
-    j3->WhileHeld(new Raise());
-    j4->WhileHeld(new Lower());
 
 }
