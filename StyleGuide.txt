@@ -1,29 +1,85 @@
+Preprocessor Directives:
+	- Preprocessor directives (e.g. #define, #include) should be at the top, with the exception of #endif.
+	- The # symbol should be pronounced "hashtag".
+	- There should be a line between the #ifndef/#define and #include directives.
+	- The #define should be after the #include directives, with a line in between.
+	- There should be a line between the preprocessor directives and the rest of the code.
+	- There should be a line between the end of an if block and the "#endif."
+	- Constants defined using #define should be in ALL_CAPITAL_LETTERS with underscores between words, e.g. #define SUM_OF_ALL_NATURAL_NUMBERS -1/12.
+	- Note: the default constants are in CamelCase. Change them.
+	e.g.:
+	#ifndef BRUH_H
+	#define BRUH_H
+	
+	#include "Bro.h"
+	#swag
+	
+	#endif
+
 Indentation:
 	- 4 Spaces = 1 Tab
-	- Indent one tab for each level of brackets surround the code
-	eg:
-	Class Robot {
-		void someFunction(void) {
-			print("hi");
-		}
+	- Indent one tab for each level of brackets surround the code.
+	- Indent one tab for access specifiers (private, protected, public).
+	e.g.:
+	Class Robot
+	{
+		private:	
+			void SomeFunction(void)
+			{
+				printf("hi");
+			}
 	}
-
+	
+Comments:
+	- Comments that are more than one line should have their own line and come before the lines of code they are commenting on.
+	- Comments that are only one line share a line with the first line of the code they comment on.
+	- The line after the /* of a block comment should be blank.
+	- Each subsequent line should be preceded by a space, an asterisk, and two more spaces.
+	- The */ should be indented by one space. The rest of the line should be blank.
+	
+Classes:
+	- The opening brace ({) goes on the line following the class declaration, the closing brace (}) goes on the line following the last line of code.
+	- Class names should be in CamelCase (first letter of each word capitalized) with the first letter capitalized, except for acronyms and initialisms,
+	  which should be in all capitals.
+	- There should be one line between the closing brace of the old class and the function declaration of the next function.
+	e.g.:
+	Class Bruh
+	{
+		private:
+			Bruh();
+			void Bro();
+		public:
+			void Brah();
+			void Bru();
+	}
+	
+Objects:
+	- When a class represents a singular physical object, give it the same name as the original class in camelCase with the first letter lowercase,
+	  e.g. DriveTrain* drivetrain.
+	- Use pointers!
+	- When there will be multiple instances of the same class (e.g. joysticks and motors) name them clearly, in camelCase with the first letter lowercase,
+	  e.g. frontRightMotor, joystick1.
+	  
 Functions:
-	- Functions that are supposed to be empty should have a "return;" so it is clear that no code is missing
-	- The open bracket "{" goes on the same line as the function declaration, the closing bracket "}" goes on the line following the last line of code
-	- One space between the end of the function declaration and the "{"
-	- Function names should be in CamelCase (first letter of each word capitalized)
-	- There should be one line between the "}" of the old function and the function declaration of the next function
-	void UselessFunction(void) {
+	- Functions should be declared in the header file and initialized in the main file.
+	- Functions that are supposed to be empty should say, "return;" so it is clear that no code is missing.
+	- The opening brace goes on the line following the function declaration, the closing brace goes on the line following the last line of code.
+	- Function names should be in CamelCase with the first letter capitalized.
+	- There should be one line between the closing brace of the old function and the function declaration of the next function.
+	e.g.:
+	void UselessFunction(void) 
+	{
 		return;
 	}
-Comments:
-	- Comments that are more than one line should have their own line and come before the lines of code they are commenting on
-	- Comments that are only one line share a line with the first line of the code they comment on
-Objects:
-	- When a class represents a singular physical object, give it the same name as the original class in all lowercase,
-		seperated by underscores eg "DriveTrain* drivetrain"
-	- Use pointers!
-	- When there will be multiple instances of the same class (eg joysticks and motors) name them clearly, in all lowercase, with underscores seperating words
-		eg "front_right_motor" "joystick_1"
+	
+Variables:
+	- Variables should be declared in the header file and initialized in the main file.
+	- Variable names should be in camelCase with the first letter lowercase. Member variables should be prefixed with m_.
+	- Constants should not be declared using "const": they should be declared using preprocessor directives.
 
+Operators:
+	- The pointer operators (* and ->) and the scope operator (::) should be used without a space.
+	- All other operators should be used with spaces between them and the things they operate on.
+
+Motors:
+	- Whenever motors are declared, initialized, or called, they should be in the following order: front left, front right, rear left, rear right.
