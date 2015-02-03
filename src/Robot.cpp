@@ -8,6 +8,7 @@
 #include "Commands/Grab.h"
 #include "Commands/Release.h"
 #include "CommandBase.h"
+#include "DataLogger.h"
 
 
 /* 
@@ -29,11 +30,11 @@ private:
 	LiveWindow *lw;
 	Compressor *compressor;
 	Command *grabCommand, *releaseCommand, *raiseCommand, *lowerCommand;
-
 	SendableChooser *drivemodechooser;
 
 	
-	virtual void RobotInit() {
+	virtual void RobotInit()
+	{
 		CommandBase::init();
 		printf("start of init\n");
 		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
@@ -59,29 +60,35 @@ private:
 
 	}
 	
-	virtual void AutonomousInit() {
-
+	virtual void AutonomousInit()
+	{
 		compressor->Start();
 		autonomousCommand->Start();
 	}
 	
-	virtual void AutonomousPeriodic() {
+	virtual void AutonomousPeriodic()
+	{
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TeleopInit() {
-		printf("init teleop\n");
+	virtual void TeleopInit()
+	{
+//		DataLogger *logger = new DataLogger();
+//		logger->Log("Entering Telop\n", 2);
+//		logger->~DataLogger();
 
 		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();
 	}
 	
-	virtual void TeleopPeriodic() {
+	virtual void TeleopPeriodic()
+	{
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TestPeriodic() {
+	virtual void TestPeriodic()
+	{
 		lw->Run();
 	}
 };
