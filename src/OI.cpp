@@ -16,8 +16,8 @@ OI::OI() {
 	joystick_4 = new Joystick(4);
 	// Joystick 5 is the NES controller
 	joystick_5 = new Joystick(5);
-	// Joystick 6 is the launchpad
-	joystick_6 = new Joystick(6);
+	// Joystick 0 is the launchpad
+	joystick_0 = new Joystick(0);
     // Create some buttons
 	/*
 	 *
@@ -83,11 +83,11 @@ OI::OI() {
     JoystickButton *j5_9 = new JoystickButton(joystick_5, 9);   // The "Select Button" for lowering the forks
     JoystickButton *j5_10 = new JoystickButton(joystick_5, 10); // The "Start Button" for raising the forks
 
-    JoystickButton *j6_1 = new JoystickButton(joystick_6, 1); // button 1 on the launchpad
+    JoystickButton *j0_1 = new JoystickButton(joystick_0, 1); // button 1 on the launchpad
     // Connect the buttons to commands
 
     //light led with launchpad
-    j6_1->WhileHeld(new LightLED());
+    j0_1->WhileHeld(new LightLED());
 
     // Grabber
     // j3_8->WhileHeld(new PrintRange());
