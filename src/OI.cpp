@@ -30,18 +30,18 @@ OI::OI() {
     // JoystickButton *j3_2 = new JoystickButton(joystick_3, 2);	// Thumb (Natural Position)
 
 	// The following buttons are mapped to the lifter Raise() and Lower() commands
-    JoystickButton *j3_3 = new JoystickButton(joystick_3, 3);		// Thumb (below/left of d_pad)
-    JoystickButton *j3_4 = new JoystickButton(joystick_3, 4);		// Thumb (below/right of d_pad)
+    // JoystickButton *j3_3 = new JoystickButton(joystick_3, 3);		// Thumb (below/left of d_pad)
+    // JoystickButton *j3_4 = new JoystickButton(joystick_3, 4);		// Thumb (below/right of d_pad)
 
     // JoystickButton *j3_5 = new JoystickButton(joystick_3, 5);		// Thumb (left of d_pad)
     // JoystickButton *j3_6 = new JoystickButton(joystick_3, 6);		// Thumb (right of d_pad)
     // JoystickButton *j3_7 = new JoystickButton(joystick_3, 7);		// Left side/10_O'Clock Outer
 
     // The 9 & 11 buttons are mapped to the pneumatic gripper Grab() & Release() commands
-    JoystickButton *j3_9 = new JoystickButton(joystick_3, 9);		// Left side/10_O'Clock Inner
-    JoystickButton *j3_8 = new JoystickButton(joystick_3, 8);		// Left side/9_O'Clock Outer
+    // JoystickButton *j3_9 = new JoystickButton(joystick_3, 9);		// Left side/10_O'Clock Inner
+    // JoystickButton *j3_8 = new JoystickButton(joystick_3, 8);		// Left side/9_O'Clock Outer
 	// JoystickButton *j3_10 = new JoystickButton(joystick_3, 10);		// Left side/9_O'Clock Inner
-    JoystickButton *j3_11 = new JoystickButton(joystick_3, 11);	// Left side/8_O'Clock Outer
+    // JoystickButton *j3_11 = new JoystickButton(joystick_3, 11);	// Left side/8_O'Clock Outer
 	// JoystickButton *j3_12 = new JoystickButton(joystick_3, 12);		// Left side/8_O'Clock Inner
 
 
@@ -76,16 +76,16 @@ OI::OI() {
      * Uncomment the appropriate lines for the buttons you would like to map
      *
      */
-    JoystickButton *j5_1 = new JoystickButton(joystick_5, 1);   // The "B Button" for closing the forks
-    JoystickButton *j5_2 = new JoystickButton(joystick_5, 2);   // The "A Button" for opening the forks
+    JoystickButton *j5_2 = new JoystickButton(joystick_5, 2);   // The "A Button" for closing the forks
+    JoystickButton *j5_3 = new JoystickButton(joystick_5, 3);   // The "B Button" for opening the forks
     JoystickButton *j5_9 = new JoystickButton(joystick_5, 9);   // The "Select Button" for lowering the forks
     JoystickButton *j5_10 = new JoystickButton(joystick_5, 10); // The "Start Button" for raising the forks
     // Connect the buttons to commands
 
     // Grabber
-//    j3_8->WhileHeld(new PrintRange());
-    j5_1->WhenPressed(new Grab());
-    j5_2->WhenPressed(new Release());
+    // j3_8->WhileHeld(new PrintRange());
+    j5_2->WhenPressed(new Grab());
+    j5_3->WhenPressed(new Release());
 
     // Lifter
     j5_10->WhileHeld(new Raise());
