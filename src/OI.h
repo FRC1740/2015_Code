@@ -16,6 +16,7 @@ public:
 	Joystick *joystick_3;
 	Joystick *joystick_4;
 	Joystick *joystick_5;
+	Joystick *joystick_6;
 };
 
 #endif
