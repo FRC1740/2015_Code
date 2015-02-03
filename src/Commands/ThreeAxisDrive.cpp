@@ -16,8 +16,8 @@ void ThreeAxisDrive::Execute()
 	// The drivetrain->Go() method has built in handling for reversing motors on the left side...
 	/* */
 
-	float x, y, t; // floats for the axes x, y, twist
-	float fl, fr, rl, rr = 0; // floats for the motor outputs
+	float x = 0, y = 0, t = 0; // floats for the axes x, y, twist
+	float fl = 0, fr = 0, rl = 0, rr = 0; // floats for the motor outputs
 
 	if (abs(oi->joystick_3->GetY() > .1)){
 		y = oi->joystick_3->GetY();
