@@ -83,7 +83,7 @@ OI::OI() {
     // Connect the buttons to commands
 
     // Grabber
-    j3_8->WhileHeld(new PrintRange());
+//    j3_8->WhileHeld(new PrintRange());
     j5_1->WhenPressed(new Grab());
     j5_2->WhenPressed(new Release());
 
