@@ -20,15 +20,15 @@ void ThreeAxisDrive::Execute()
 	float x = 0, y = 0, t = 0; // floats for the axes x, y, twist
 	float fl = 0, fr = 0, rl = 0, rr = 0; // floats for the motor outputs
 
-	if (abs(oi->joystick_3->GetY()) > .1)
+	if (oi->joystick_3->GetY() > .1 || oi->joystick_3->GetY() < -.1) // Deadband +/- .1
 	{
 		y = oi->joystick_3->GetY();
 	}
-	if (abs(oi->joystick_3->GetX()) > .1)
+	if (oi->joystick_3->GetX() > .1 || oi->joystick_3->GetX() < -.1)  // Deadband +/- .1
 	{
 		x = oi->joystick_3->GetX();
 	}
-	if (abs(oi->joystick_3->GetTwist()) > .1)
+	if (oi->joystick_3->GetTwist() > .1 || oi->joystick_3->GetTwist() < -.1)  // Deadband +/- .1
 	{
 		t = oi->joystick_3->GetTwist();
 	}
@@ -36,7 +36,17 @@ void ThreeAxisDrive::Execute()
 	fr = y + t - x; // Front Right Wheel
 	rl = y - t - x; // Rear Left Wheel
 	rr = y + t + x; // Rear Right Wheel
-	if (fl!=0 || fr!=0 || rl!=0 || rr!=0) l->Log("We're moving!!", VERBOSE_MESSAGE);
+
+#if (DEBUG_LEVEL == 4) // CRE Not sure if this is legit
+
+	if (fl!=0 || fr!=0 || rl!=0 || rr!=0)
+	{
+		char *data = new char[128];
+		sprintf(data, "We're moving: %2.1f, %2.1f, %2.1f; X=%2.1f, Y=%2.1f, Twist=%2.1f, %2.1f", fl, fr, rl, rr, x, y, t);
+		l->Log(data, VERBOSE_MESSAGE);
+	}
+
+#endif
 
 	drivetrain->Go(fl,fr,rl,rr);
 	/*
