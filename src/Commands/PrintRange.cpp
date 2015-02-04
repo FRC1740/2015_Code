@@ -4,7 +4,7 @@
 PrintRange::PrintRange()
 {
 	// Use Requires() here to declare subsystem dependencies
- //   Requires(rangefinder); // I dont think we need to require here, since we dont need exclusive control
+	Requires(rangefinder);
 }
 
 // Called just before this Command runs the first time
