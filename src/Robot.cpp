@@ -31,28 +31,28 @@ private:
 	Compressor *compressor;
 	Command *grabCommand, *releaseCommand, *raiseCommand, *lowerCommand;
 	SendableChooser *drivemodechooser;
-
+	DataLogger *logger;
 	
 	virtual void RobotInit()
 	{
 		CommandBase::init();
-		printf("start of init\n");
+		logger = new DataLogger();
+		logger->Log("RobotInit()", STATUS_MESSAGE);
 		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
 
 		drivemodechooser = new SendableChooser();
 
 		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
 		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
-		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive());
+		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive(logger));
 		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
-		printf("added objects\n");
+		logger->Log("added objects", VERBOSE_MESSAGE);
 		autonomousCommand = new Autonomous();
 
 		lw = LiveWindow::GetInstance();
-		printf("Starting robot!\n");
-
-
+		logger->Log("Starting robot!", VERBOSE_MESSAGE);
+		logger->Flush();
 		CameraServer::GetInstance()->SetQuality(100);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
@@ -62,6 +62,8 @@ private:
 	
 	virtual void AutonomousInit()
 	{
+		logger->Log("AutonomousInit()",STATUS_MESSAGE);
+		logger->Log("Starting Compressor", STATUS_MESSAGE);
 		compressor->Start();
 		autonomousCommand->Start();
 	}
@@ -73,13 +75,11 @@ private:
 	
 	virtual void TeleopInit()
 	{
-//		DataLogger *logger = new DataLogger();
-//		logger->Log("Entering Telop\n", 2);
-//		logger->~DataLogger();
-
+		logger->Log("Entering TeleopInit()", STATUS_MESSAGE);
 		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();
+//		logger->End();
 	}
 	
 	virtual void TeleopPeriodic()

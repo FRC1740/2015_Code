@@ -16,6 +16,7 @@ DataLogger::DataLogger()
 		fwrite((void *)"Created Log File\n", sizeof(char), 17, fh);
 	else
 		abort = true;
+	fclose(fh);
 }
 
 int DataLogger::Log(const char *data, int level)
@@ -30,7 +31,13 @@ int DataLogger::Log(const char *data, int level)
 	{
 		strcpy(buffer, data);
 		strcat(buffer, "\n");
-		writeCount = fwrite((void *)buffer, sizeof(char), strlen(buffer), fh);
+		fh = fopen(logfile, "a");
+		if (fh != NULL)
+		{
+			writeCount = fwrite((void *)buffer, sizeof(char), strlen(buffer), fh);
+			fclose(fh);
+		}
+		else abort = true;
 	}
 	else
 		writeCount = 0;
@@ -39,7 +46,7 @@ int DataLogger::Log(const char *data, int level)
 }
 void DataLogger::Flush()
 {
-	fflush(fh);
+//	fflush(fh);
 }
 int DataLogger::End()
 {
@@ -47,6 +54,6 @@ int DataLogger::End()
 		return(-1);
 
 	int error=0;
-	error = fclose(fh);
+//	error = fclose(fh);
 	return(error);
 }
