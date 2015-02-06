@@ -1,12 +1,15 @@
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 
-#include "Commands/Command.h"
+#include <Commands/Command.h>
+#include <Commands/Scheduler.h>
+
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Gripper.h"
 #include "Subsystems/LifterPID.h"
 #include "Subsystems/RangeFinder.h"
 #include "OI.h"
+#include "DataLogger.h"
 
 
 /**
@@ -18,7 +21,7 @@ class CommandBase: public Command {
 public:
 	CommandBase(const char *name);
 	CommandBase();
-	static void init();
+	static void init(DataLogger *);
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *drivetrain;
 	static Gripper *gripper;

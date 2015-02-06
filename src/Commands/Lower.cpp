@@ -8,6 +8,7 @@ Lower::Lower()
 // Called just before this Command runs the first time
 void Lower::Initialize()
 {
+//	lifterpid->Reset();
 	lifterpid->lifterMotor->Set(1); // WARNING could be the wrong direction
 }
 

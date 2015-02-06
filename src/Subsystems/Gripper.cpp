@@ -1,8 +1,6 @@
 #include "Gripper.h"
-#include "../RobotMap.h"
 
-Gripper::Gripper() :
-		Subsystem("Gripper")
+Gripper::Gripper() : Subsystem("Gripper")
 {
 	s0 = new Solenoid(CYLINDER_PORT0);
 	s1 = new Solenoid(CYLINDER_PORT1);

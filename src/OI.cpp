@@ -95,7 +95,7 @@ OI::OI() {
     j5_3->WhenPressed(new Release());
 
     // Lifter
-    j5_10->WhileHeld(new Raise());
-    j5_9->WhileHeld(new Lower());
+    j5_9->WhileHeld(new Raise());
+    j5_10->WhileHeld(new Lower());
 
 }
