@@ -2,24 +2,25 @@
 #include "../RobotMap.h"
 #include "OI.h"
 
-XBoxDrive::XBoxDrive()
+XBoxDrive::XBoxDrive(DataLogger *logger)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(drivetrain);
+	l=logger;
 }
 
 // Called just before this Command runs the first time
 void XBoxDrive::Initialize()
 {
-	printf("XBox Drive");
+	l->Log("XBoxDrive::Initialize(); XBox Drive",2);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void XBoxDrive::Execute(){
-	drivetrain->front_right_motor->Set(-1 * (oi->joystick_4->GetRawAxis(1) - oi->joystick_4->GetRawAxis(0) - oi->joystick_4->GetRawAxis(4)));
-	drivetrain->front_left_motor->Set(oi->joystick_4->GetRawAxis(1) + oi->joystick_4->GetRawAxis(0) + oi->joystick_4->GetRawAxis(4));
-	drivetrain->rear_left_motor->Set(-1 * (oi->joystick_4->GetRawAxis(1) + oi->joystick_4->GetRawAxis(0) - oi->joystick_4->GetRawAxis(4)));
-	drivetrain->rear_right_motor->Set(oi->joystick_4->GetRawAxis(1) - oi->joystick_4->GetRawAxis(0) + oi->joystick_4->GetRawAxis(4));
+	drivetrain->front_left_motor->Set(oi->xboxController->GetRawAxis(1) + oi->xboxController->GetRawAxis(0) + oi->xboxController->GetRawAxis(4));
+	drivetrain->front_right_motor->Set(-(oi->xboxController->GetRawAxis(1) - oi->xboxController->GetRawAxis(0) - oi->xboxController->GetRawAxis(4)));
+	drivetrain->rear_left_motor->Set(-(oi->xboxController->GetRawAxis(1) + oi->xboxController->GetRawAxis(0) - oi->xboxController->GetRawAxis(4)));
+	drivetrain->rear_right_motor->Set(oi->xboxController->GetRawAxis(1) - oi->xboxController->GetRawAxis(0) + oi->xboxController->GetRawAxis(4));
 }
 
 // Make this return true when this Command no longer needs to run execute()

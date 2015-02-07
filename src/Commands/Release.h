@@ -7,7 +7,8 @@
 class Release: public CommandBase
 {
 public:
-	Release();
+	Release(DataLogger *);
+	DataLogger *l;
 	void Initialize();
 	void Execute();
 	bool IsFinished();

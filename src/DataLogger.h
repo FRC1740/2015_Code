@@ -23,6 +23,7 @@
  */
 #define ERROR_MESSAGE 1
 #define STATUS_MESSAGE 2
+#define DEBUG_MESSAGE 3
 #define VERBOSE_MESSAGE 4
 
 #define DEBUG_LEVEL 4 // Messages with this level or below will be logged

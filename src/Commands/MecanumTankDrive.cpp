@@ -1,21 +1,22 @@
 #include "MecanumTankDrive.h"
 
-MecanumTankDrive::MecanumTankDrive()
+MecanumTankDrive::MecanumTankDrive(DataLogger *logger)
 {
 	Requires(drivetrain);  // obviously drive modes need exclusive drivetrain access
+	l=logger;
 }
 
 void MecanumTankDrive::Initialize()
 {
-	return;
+	l->Log("MecanumTankDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void MecanumTankDrive::Execute()
 {
-	drivetrain->front_right_motor->Set(oi->joystick_2->GetY() + oi->joystick_2->GetX());
-	drivetrain->rear_right_motor->Set(oi->joystick_2->GetY() - oi->joystick_2->GetX());
-	drivetrain->front_left_motor->Set(oi->joystick_1->GetY() - oi->joystick_1->GetX());
-	drivetrain->rear_left_motor->Set(oi->joystick_1->GetY() + oi->joystick_1->GetX());
+	drivetrain->front_left_motor->Set(oi->tankDriveJoystickLeft->GetY() - oi->tankDriveJoystickLeft->GetX());
+	drivetrain->rear_left_motor->Set(oi->tankDriveJoystickLeft->GetY() + oi->tankDriveJoystickLeft->GetX());
+	drivetrain->front_right_motor->Set(oi->tankDriveJoystickRight->GetY() + oi->tankDriveJoystickRight->GetX());
+	drivetrain->rear_right_motor->Set(oi->tankDriveJoystickRight->GetY() - oi->tankDriveJoystickRight->GetX());
 }
 
 bool MecanumTankDrive::IsFinished()
