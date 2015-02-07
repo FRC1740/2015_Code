@@ -2,21 +2,24 @@
 #define OI_H
 
 #include "WPILib.h"
+#include "DataLogger.h"
 
 // currently set up for 2 joystick tank, add more features later!
 
 
-class OI {
+class OI
+{
 private:
 
 public:
-	OI();
-	Joystick *joystick_1;
-	Joystick *joystick_2;
-	Joystick *joystick_3;
-	Joystick *joystick_4;
-	Joystick *joystick_5;
-	Joystick *joystick_0;
+	OI(DataLogger *);
+	DataLogger *l;
+	Joystick *tankDriveJoystickLeft;
+	Joystick *tankDriveJoystickRight;
+	Joystick *threeAxisJoystick;
+	Joystick *xboxController;
+	Joystick *NESController;
+	Joystick *launchPad;
 };
 
 #endif

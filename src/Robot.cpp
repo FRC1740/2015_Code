@@ -42,10 +42,10 @@ private:
 
 		drivemodechooser = new SendableChooser();
 
-		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
-		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
+		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive(logger));
+		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive(logger));
 		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive(logger));
-		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
+		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive(logger));
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
 		logger->Log("added objects", VERBOSE_MESSAGE);
 		autonomousCommand = new Autonomous();

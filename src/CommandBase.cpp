@@ -22,5 +22,5 @@ void CommandBase::init(DataLogger *logger) {
 	gripper = new Gripper(); // Grab, Release Forks
 	lifterpid = new LifterPID(logger);
 	rangefinder = new RangeFinder(); // find distances!
-	oi = new OI();
+	oi = new OI(logger);
 }

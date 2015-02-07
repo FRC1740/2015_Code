@@ -8,7 +8,7 @@ ThreeAxisDrive::ThreeAxisDrive(DataLogger *logger)
 
 void ThreeAxisDrive::Initialize()
 {
-	l->Log("Entering ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
+	l->Log("ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void ThreeAxisDrive::Execute()
@@ -20,17 +20,17 @@ void ThreeAxisDrive::Execute()
 	float x = 0, y = 0, t = 0; // floats for the axes x, y, twist
 	float fl = 0, fr = 0, rl = 0, rr = 0; // floats for the motor outputs
 
-	if (oi->joystick_3->GetY() > .1 || oi->joystick_3->GetY() < -.1) // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetY() > .1 || oi->threeAxisJoystick->GetY() < -.1) // Deadband +/- .1
 	{
-		y = oi->joystick_3->GetY();
+		y = oi->threeAxisJoystick->GetY();
 	}
-	if (oi->joystick_3->GetX() > .1 || oi->joystick_3->GetX() < -.1)  // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetX() > .1 || oi->threeAxisJoystick->GetX() < -.1)  // Deadband +/- .1
 	{
-		x = oi->joystick_3->GetX();
+		x = oi->threeAxisJoystick->GetX();
 	}
-	if (oi->joystick_3->GetTwist() > .1 || oi->joystick_3->GetTwist() < -.1)  // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetTwist() > .1 || oi->threeAxisJoystick->GetTwist() < -.1)  // Deadband +/- .1
 	{
-		t = oi->joystick_3->GetTwist();
+		t = oi->threeAxisJoystick->GetTwist();
 	}
 	fl = y - t + x; // Front Left Wheel
 	fr = y + t - x; // Front Right Wheel
@@ -39,11 +39,12 @@ void ThreeAxisDrive::Execute()
 
 #if (DEBUG_LEVEL == 4) // CRE Not sure if this is legit
 
-	if (fl!=0 || fr!=0 || rl!=0 || rr!=0)
+	if (gfl!=fl || gfr!=fr || grl!=rl || grr!=rr) // Only log the movement if something changed
 	{
+		gfl=fl; gfr=fr; grl=rl; grr=rr;
 		char *data = new char[128];
-		sprintf(data, "We're moving: %2.1f, %2.1f, %2.1f; X=%2.1f, Y=%2.1f, Twist=%2.1f, %2.1f", fl, fr, rl, rr, x, y, t);
-		l->Log(data, VERBOSE_MESSAGE);
+		sprintf(data, "We're moving: %2.1f, %2.1f, %2.1f, %2.1f; X=%2.1f, Y=%2.1f, Twist=%2.1f", fl, fr, rl, rr, x, y, t);
+		l->Log(data, DEBUG_MESSAGE);
 	}
 
 #endif
@@ -51,10 +52,10 @@ void ThreeAxisDrive::Execute()
 	drivetrain->Go(fl,fr,rl,rr);
 	/*
 	// Alternatively, we can send the joystick inputs directly to the drivetrain->xxx->Set() methods
-	drivetrain->front_left_motor->Set(oi->joystick_3->GetTwist() - oi->joystick_3->GetY() - oi->joystick_3->GetX());
-	drivetrain->front_right_motor->Set(oi->joystick_3->GetTwist() + oi->joystick_3->GetY() + oi->joystick_3->GetX());
-	drivetrain->rear_left_motor->Set(oi->joystick_3->GetTwist() - oi->joystick_3->GetY() + oi->joystick_3->GetX());
-	drivetrain->rear_right_motor->Set(oi->joystick_3->GetTwist() + oi->joystick_3->GetY() - oi->joystick_3->GetX());
+	drivetrain->front_left_motor->Set(oi->threeAxisJoystick->GetTwist() - oi->threeAxisJoystick->GetY() - oi->threeAxisJoystick->GetX());
+	drivetrain->front_right_motor->Set(oi->threeAxisJoystick->GetTwist() + oi->threeAxisJoystick->GetY() + oi->threeAxisJoystick->GetX());
+	drivetrain->rear_left_motor->Set(oi->threeAxisJoystick->GetTwist() - oi->threeAxisJoystick->GetY() + oi->threeAxisJoystick->GetX());
+	drivetrain->rear_right_motor->Set(oi->threeAxisJoystick->GetTwist() + oi->threeAxisJoystick->GetY() - oi->threeAxisJoystick->GetX());
 	*/
 }
 

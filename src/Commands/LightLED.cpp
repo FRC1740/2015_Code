@@ -12,7 +12,7 @@ void LightLED::Initialize()
 
 void LightLED::Execute()
 {
-	oi->joystick_5->SetOutput(1, true);
+	oi->launchPad->SetOutput(1, true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -24,12 +24,12 @@ bool LightLED::IsFinished()
 // Called once after isFinished returns true
 void LightLED::End()
 {
-	oi->joystick_5->SetOutput(1, false);
+	oi->launchPad->SetOutput(1, false);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LightLED::Interrupted()
 {
-	oi->joystick_5->SetOutput(1, false);
+	oi->launchPad->SetOutput(1, false);
 }

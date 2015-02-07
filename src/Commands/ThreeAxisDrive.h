@@ -16,6 +16,7 @@ public:
 	void End();
 	void Interrupted();
 	DataLogger *l=NULL;
+	float gfl = 0, gfr = 0, grl = 0, grr = 0; // floats for the motor outputs
 };
 
 #endif
