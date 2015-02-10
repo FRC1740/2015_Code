@@ -41,7 +41,7 @@ void LifterPID::UsePIDOutput(double output)
 {
 	lifterMotor->Set(output);
 }
-void LifterPID::UpdateSetpoint(double setpoint) {
+void LifterPID::UpdateSetpoint(int setpoint) {
 	SetSetpoint(setpoint);
 }
 void LifterPID::InitDefaultCommand()

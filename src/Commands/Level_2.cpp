@@ -12,7 +12,7 @@ Level_2::Level_2(DataLogger *logger)
 void Level_2::Initialize()
 {
 	l->Log("Level_2::Initialize();", DEBUG_MESSAGE);
-	lifterpid->SetSetpoint(LEVEL_TWO);
+	lifterpid->UpdateSetpoint(LEVEL_TWO);
 	l->Log("Level_2::Initialize(); Headed to Level 2!", DEBUG_MESSAGE);
 }
 

@@ -12,7 +12,7 @@ Level_3::Level_3(DataLogger *logger)
 void Level_3::Initialize()
 {
 	l->Log("Level_3::Initialize()", DEBUG_MESSAGE);
-	lifterpid->SetSetpoint(LEVEL_THREE);
+	lifterpid->UpdateSetpoint(LEVEL_THREE);
 	l->Log("Level_3::Initialize(); Headed to Level 3!", DEBUG_MESSAGE);
 
 }
