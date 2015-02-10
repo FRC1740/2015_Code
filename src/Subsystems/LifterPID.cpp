@@ -1,4 +1,5 @@
 #include "LifterPID.h"
+#include "../Commands/Level_1.h" // YOU MUST INCLUDE this to set it as the default command
 
 LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 1.0, 0, 0)
 {
@@ -8,7 +9,7 @@ LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 1.0, 0, 0)
 //	upperLimit = new DigitalInput(UPPER_LIMIT_PORT);
 //	lowerLimit = new DigitalInput(LOWER_LIMIT_PORT);
 	SmartDashboard::PutNumber("Encoder", lifterEncoder->Get()); // ktk - not sure if this auto updates
-	SetSetpoint(360);
+//	SetSetpoint(360);
 	lifterEncoder->Reset();
 	l=logger;
 //	Enable();
@@ -16,17 +17,21 @@ LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 1.0, 0, 0)
 
 double LifterPID::ReturnPIDInput()
 {
-	SmartDashboard::PutNumber("Encoder", lifterEncoder->Get());
-	return lifterEncoder->Get();
+	char data[128] = "";
+	double encoder=lifterEncoder->Get();
+
+	SmartDashboard::PutNumber("Encoder", encoder);
+	sprintf(data, "LifterPID::ReturnPIDInput(); Encoder: %5.1f", encoder);
+	l->Log(data, DEBUG_MESSAGE);
+
+	return encoder;
 }
 void LifterPID::Reset()
 {
-//	while (lifterMotor->IsRevLimitSwitchClosed() == false) // This REQUIRES that the Appropriate (Reverse?) Limit Switch is wired into the Talon
+	l->Log("LifterPID::Reset(); Calibrating forklift...", 1);
+	while (lifterMotor->IsFwdLimitSwitchClosed() == false) // This REQUIRES that the Appropriate (Fwd) Limit Switch is wired into the Talon at the BOTTOM
 	{
-		lifterMotor->Set(-1);
-		Wait(.25);
-		lifterMotor->Set(1);
-		Wait(.25);
+		lifterMotor->Set(DOWN);
 	}
 	lifterEncoder->Reset();
 	SetSetpoint(0);
@@ -34,18 +39,18 @@ void LifterPID::Reset()
 }
 void LifterPID::UsePIDOutput(double output)
 {
-	lifterMotor->Set(output / 2);
+	lifterMotor->Set(output);
 }
 
 void LifterPID::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//setDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new Level_1(l)); // The argument is a lower case "ell"
 }
 
 void LifterPID::BottomLimitCheck()
 {
-	if(lifterMotor->IsRevLimitSwitchClosed())
+	if(lifterMotor->IsFwdLimitSwitchClosed())
 	{
 		lifterEncoder->Reset();
 		l->Log("LifterPID::BottomLimitCheck(); Bottom Limit Switch Reached: Resetting Encoder", 2);

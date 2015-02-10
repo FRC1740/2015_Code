@@ -1,5 +1,12 @@
 #include "ThreeAxisDrive.h"
 
+#define SCALE_TWIST .75
+#define SCALE_YAXIS 1.0
+#define SCALE_XAXIS 1.0
+#define DEADBAND_XAXIS .1
+#define DEADBAND_YAXIS .1
+#define DEADBAND_TWIST .3
+
 ThreeAxisDrive::ThreeAxisDrive(DataLogger *logger)
 {
 	l=logger;
@@ -20,22 +27,22 @@ void ThreeAxisDrive::Execute()
 	float x = 0, y = 0, t = 0; // floats for the axes x, y, twist
 	float fl = 0, fr = 0, rl = 0, rr = 0; // floats for the motor outputs
 
-	if (oi->threeAxisJoystick->GetY() > .1 || oi->threeAxisJoystick->GetY() < -.1) // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetY() > DEADBAND_YAXIS || oi->threeAxisJoystick->GetY() < -DEADBAND_YAXIS) // Deadband
 	{
-		y = oi->threeAxisJoystick->GetY();
+		y = SCALE_YAXIS * oi->threeAxisJoystick->GetY();
 	}
-	if (oi->threeAxisJoystick->GetX() > .1 || oi->threeAxisJoystick->GetX() < -.1)  // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetX() > DEADBAND_XAXIS || oi->threeAxisJoystick->GetX() < -DEADBAND_XAXIS)  // Deadband
 	{
 		x = oi->threeAxisJoystick->GetX();
 	}
-	if (oi->threeAxisJoystick->GetTwist() > .1 || oi->threeAxisJoystick->GetTwist() < -.1)  // Deadband +/- .1
+	if (oi->threeAxisJoystick->GetTwist() > DEADBAND_TWIST || oi->threeAxisJoystick->GetTwist() < -DEADBAND_TWIST)  // Deadband
 	{
-		t = oi->threeAxisJoystick->GetTwist();
+		t = SCALE_TWIST  * oi->threeAxisJoystick->GetTwist();
 	}
-	fl = y - t + x; // Front Left Wheel
-	fr = y + t - x; // Front Right Wheel
-	rl = y - t - x; // Rear Left Wheel
-	rr = y + t + x; // Rear Right Wheel
+	fl = y - t - x; // Front Left Wheel
+	fr = y + t + x; // Front Right Wheel
+	rl = y - t + x; // Rear Left Wheel
+	rr = y + t - x; // Rear Right Wheel
 
 #if (DEBUG_LEVEL == 4) // CRE Not sure if this is legit
 

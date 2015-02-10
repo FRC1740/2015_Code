@@ -1,14 +1,14 @@
-#ifndef Raise_H
-#define Raise_H
+#ifndef Level_2_H
+#define Level_2_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class Raise: public CommandBase
+class Level_2: public CommandBase
 {
 public:
-	Raise(DataLogger *);
-	DataLogger *l;
+	Level_2(DataLogger *);
+	DataLogger* l;
 	void Initialize();
 	void Execute();
 	bool IsFinished();
