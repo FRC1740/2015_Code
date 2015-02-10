@@ -12,16 +12,16 @@ LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 1.0, 0, 0)
 //	SetSetpoint(360);
 	lifterEncoder->Reset();
 	l=logger;
-//	Enable();
+	Enable();
 }
 
 double LifterPID::ReturnPIDInput()
 {
 	char data[128] = "";
-	double encoder=lifterEncoder->Get();
+	int encoder=lifterEncoder->Get();
 
 	SmartDashboard::PutNumber("Encoder", encoder);
-	sprintf(data, "LifterPID::ReturnPIDInput(); Encoder: %5.1f", encoder);
+	sprintf(data, "LifterPID::ReturnPIDInput(); Encoder: %d", encoder);
 	l->Log(data, DEBUG_MESSAGE);
 
 	return encoder;
@@ -41,7 +41,9 @@ void LifterPID::UsePIDOutput(double output)
 {
 	lifterMotor->Set(output);
 }
-
+void LifterPID::UpdateSetpoint(double setpoint) {
+	SetSetpoint(setpoint);
+}
 void LifterPID::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.

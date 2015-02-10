@@ -36,7 +36,7 @@ private:
 	// however the motors are public since its clearer to directly control the motors instead of having individual set functions
 	Timer gameTime;
 	FILE *fh;
-	int abort=false;
+	int abort=true;
 	char logfile[256];
 	char buffer[256];
 

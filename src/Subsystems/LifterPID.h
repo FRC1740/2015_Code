@@ -21,15 +21,15 @@ private:
 public:
 	LifterPID(DataLogger*);
 	double ReturnPIDInput();
-	void UsePIDOutput(double output);
+	void UsePIDOutput(double);
 	void InitDefaultCommand();
-	void UpdateSetPoint(double input);
+	void UpdateSetpoint(double);
 	void Reset(void);
 	void BottomLimitCheck();
-	static const double level1;
-	static const double level2;
-	static const double level3;
-
+	static const int level1;
+	static const int level2;
+	static const int level3;
+	static const int target;
 //	Victor* lifterMotor;
 	CANTalon* lifterMotor;
 	DataLogger *l=NULL;
