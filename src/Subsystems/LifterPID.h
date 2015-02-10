@@ -21,9 +21,9 @@ private:
 public:
 	LifterPID(DataLogger*);
 	double ReturnPIDInput();
-	void UsePIDOutput(double);
+	void UsePIDOutput(double output);
 	void InitDefaultCommand();
-	void UpdateSetpoint(double);
+	void UpdateSetPoint(double input);
 	void Reset(void);
 	void BottomLimitCheck();
 	static const double level1;

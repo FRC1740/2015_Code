@@ -41,9 +41,7 @@ void LifterPID::UsePIDOutput(double output)
 {
 	lifterMotor->Set(output);
 }
-void LifterPID::UpdateSetpoint(double setpoint){
-	SetSetpoint(setpoint);
-}
+
 void LifterPID::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
