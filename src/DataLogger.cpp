@@ -13,10 +13,11 @@ DataLogger::DataLogger()
 	strcpy(logfile, "/media/sda1/log.txt"); // Log file name
 	fh = fopen(logfile, "w+");
 	if (fh != NULL)
+	{
 		fwrite((void *)"Created Log File\n", sizeof(char), 17, fh);
-	else
-		abort = true;
-	fclose(fh);
+		fclose(fh);
+		abort=false; // initialized to true in header file
+	}
 }
 
 int DataLogger::Log(const char *data, int level)

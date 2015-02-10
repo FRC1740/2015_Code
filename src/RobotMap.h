@@ -17,7 +17,7 @@
 // #define LIFTER_MOTOR_PORT		4 // Use if LifterMotor is controlled by a Victor
 #define LIFTER_MOTOR_CAN_CHANNEL 0  //
 #define LIFTER_ENCODER_PORT_0	5
-#define LIFTER_ENCODER_PORT_1 	6
+#define LIFTER_ENCODER_PORT_1 	4
 
 #define UPPER_LIMIT_PORT		0
 #define LOWER_LIMIT_PORT		1
@@ -30,8 +30,8 @@
 #define RANGEFINDER_CHANNEL 0
 
 // Forklift Levels
-#define LEVEL_ONE 600 // WAG
-#define LEVEL_TWO 1200 // SWAG
-#define LEVEL_THREE 1800 // SWAG
+#define LEVEL_ONE 0 // // We reset encoder to 0 at bottom limit switch
+#define LEVEL_TWO 600 // SWAG
+#define LEVEL_THREE 1200 // SWAG
 
 #endif
