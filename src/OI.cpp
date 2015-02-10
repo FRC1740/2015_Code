@@ -3,6 +3,9 @@
 #include "Commands/Release.h"
 #include "Commands/Raise.h"
 #include "Commands/Lower.h"
+#include "Commands/Level_1.h"
+#include "Commands/Level_2.h"
+#include "Commands/Level_3.h"
 #include "Commands/PrintRange.h"
 #include "Commands/LightLED.h"
 #include "DataLogger.h"
@@ -32,24 +35,27 @@ OI::OI(DataLogger *logger)
 	 */
 
 
-    // JoystickButton *j3_1 = new JoystickButton(joystick_3, 1);	// Trigger
-    // JoystickButton *j3_2 = new JoystickButton(joystick_3, 2);	// Thumb (Natural Position)
+    // JoystickButton *threeAxis_1 = new JoystickButton(threeAxisJoystick, 1);	// Trigger
+    // JoystickButton *threeAxis_2 = new JoystickButton(threeAxisJoystick, 2);	// Thumb (Natural Position)
 
 	// The following buttons are mapped to the lifter Raise() and Lower() commands
-    // JoystickButton *j3_3 = new JoystickButton(joystick_3, 3);		// Thumb (below/left of d_pad)
-    // JoystickButton *j3_4 = new JoystickButton(joystick_3, 4);		// Thumb (below/right of d_pad)
+    // JoystickButton *threeAxis_3 = new JoystickButton(threeAxisJoystick, 3);		// Thumb (below/left of d_pad)
+    // JoystickButton *threeAxis_4 = new JoystickButton(threeAxisJoystick, 4);		// Thumb (below/right of d_pad)
 
-    // JoystickButton *j3_5 = new JoystickButton(joystick_3, 5);		// Thumb (left of d_pad)
-    // JoystickButton *j3_6 = new JoystickButton(joystick_3, 6);		// Thumb (right of d_pad)
-    // JoystickButton *j3_7 = new JoystickButton(joystick_3, 7);		// Left side/10_O'Clock Outer
+    // JoystickButton *threeAxis_5 = new JoystickButton(threeAxisJoystick, 5);		// Thumb (left of d_pad)
+    // JoystickButton *threeAxis_6 = new JoystickButton(threeAxisJoystick, 6);		// Thumb (right of d_pad)
 
-    // The 9 & 11 buttons are mapped to the pneumatic gripper Grab() & Release() commands
-    // JoystickButton *j3_9 = new JoystickButton(joystick_3, 9);		// Left side/10_O'Clock Inner
-    // JoystickButton *j3_8 = new JoystickButton(joystick_3, 8);		// Left side/9_O'Clock Outer
-	// JoystickButton *j3_10 = new JoystickButton(joystick_3, 10);		// Left side/9_O'Clock Inner
-    // JoystickButton *j3_11 = new JoystickButton(joystick_3, 11);	// Left side/8_O'Clock Outer
-	// JoystickButton *j3_12 = new JoystickButton(joystick_3, 12);		// Left side/8_O'Clock Inner
+    // The 7, 9 & 11 buttons are mapped to the Lifter level (1, 2, 3) commands
+    JoystickButton *threeAxis_7 = new JoystickButton(threeAxisJoystick, 7);		// Left side/10_O'Clock Outer
+    // JoystickButton *threeAxis_8 = new JoystickButton(threeAxisJoystick, 8);		// Left side/9_O'Clock Outer
+    JoystickButton *threeAxis_9 = new JoystickButton(threeAxisJoystick, 9);		// Left side/10_O'Clock Inner
+	// JoystickButton *threeAxis_10 = new JoystickButton(threeAxisJoystick, 10);		// Left side/9_O'Clock Inner
+    JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
+	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
+    threeAxis_7->WhenPressed(new Level_1(logger));
+    threeAxis_9->WhenPressed(new Level_2(logger));
+    threeAxis_11->WhenPressed(new Level_3(logger));
 
 
     /*
@@ -87,19 +93,20 @@ OI::OI(DataLogger *logger)
     JoystickButton *NES_9 = new JoystickButton(NESController, 9);   // The "Select Button" for lowering the forks
     JoystickButton *NES_10 = new JoystickButton(NESController, 10); // The "Start Button" for raising the forks
 
+    // Grabber
+    // threeAxis_8->WhileHeld(new PrintRange());
+    NES_2->WhenPressed(new Grab(logger));
+    NES_3->WhenPressed(new Release(logger));
+
+    // Lifter
+    NES_9->WhileHeld(new Raise(logger));
+    NES_10->WhileHeld(new Lower(logger));
+
     JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands
 
     //light led with launchpad
     launchPad_1->WhileHeld(new LightLED());
 
-    // Grabber
-    // j3_8->WhileHeld(new PrintRange());
-    NES_2->WhenPressed(new Grab(logger));
-    NES_3->WhenPressed(new Release(logger));
-
-    // Lifter
-    NES_9->WhileHeld(new Raise());
-    NES_10->WhileHeld(new Lower());
 
 }

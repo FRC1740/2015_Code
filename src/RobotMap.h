@@ -29,4 +29,9 @@
 
 #define RANGEFINDER_CHANNEL 0
 
+// Forklift Levels
+#define LEVEL_ONE 600 // WAG
+#define LEVEL_TWO 1200 // SWAG
+#define LEVEL_THREE 1800 // SWAG
+
 #endif
