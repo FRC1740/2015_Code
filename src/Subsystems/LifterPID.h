@@ -23,7 +23,7 @@ public:
 	double ReturnPIDInput();
 	void UsePIDOutput(double);
 	void InitDefaultCommand();
-	void UpdateSetpoint(double);
+	void UpdateSetpoint(int);
 	void Reset(void);
 	void BottomLimitCheck();
 	static const int level1;
