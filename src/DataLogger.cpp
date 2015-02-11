@@ -32,13 +32,19 @@ int DataLogger::Log(const char *data, int level)
 	{
 		strcpy(buffer, data);
 		strcat(buffer, "\n");
-		fh = fopen(logfile, "a");
-		if (fh != NULL)
+		if (strcmp(buffer, bufferPrevious) != 0)
 		{
-			writeCount = fwrite((void *)buffer, sizeof(char), strlen(buffer), fh);
-			fclose(fh);
+			fh = fopen(logfile, "a");
+			if (fh != NULL)
+			{
+				writeCount = fwrite((void *)buffer, sizeof(char), strlen(buffer), fh);
+				fclose(fh);
+			}
+			else abort = true;
+
+			fprintf(stderr, buffer);
+			strcpy(bufferPrevious, buffer);
 		}
-		else abort = true;
 	}
 	else
 		writeCount = 0;
