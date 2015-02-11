@@ -39,6 +39,7 @@ private:
 	int abort=true;
 	char logfile[256];
 	char buffer[256];
+	char bufferPrevious[256];
 
 public:
 	DataLogger();
