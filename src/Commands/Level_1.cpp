@@ -13,6 +13,7 @@ void Level_1::Initialize()
 {
 	l->Log("Level_1::Initialize()", DEBUG_MESSAGE);
 	lifterpid->UpdateSetpoint(LEVEL_ONE);
+	lifterpid->Reset();
 	l->Log("Level_1::Initialize(); Headed to Level 1!", DEBUG_MESSAGE);
 }
 
