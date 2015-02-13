@@ -36,7 +36,7 @@
 
 // Forklift Levels
 #define LEVEL_ONE 0 // // We reset encoder to 0 at bottom limit switch
-#define LEVEL_TWO 600 // SWAG
-#define LEVEL_THREE 1200 // SWAG
+#define LEVEL_TWO 375 // SWAG
+#define LEVEL_THREE 750 // SWAG
 
 #endif
