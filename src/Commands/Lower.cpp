@@ -9,7 +9,7 @@ Lower::Lower(DataLogger *logger)
 // Called just before this Command runs the first time
 void Lower::Initialize()
 {
-//	lifterpid->Reset();
+	lifterpid->Disable();
 	l->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1)", DEBUG_MESSAGE);
 	lifterpid->lifterMotor->Set(1); // WARNING could be the wrong direction
 	l->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
@@ -31,6 +31,8 @@ bool Lower::IsFinished()
 void Lower::End()
 {
 	lifterpid->lifterMotor->Set(0);
+	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
+	lifterpid->Enable();
 }
 
 // Called when another command which requires one or more of the same
@@ -38,4 +40,6 @@ void Lower::End()
 void Lower::Interrupted()
 {
 	lifterpid->lifterMotor->Set(0);
+	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
+	lifterpid->Enable();
 }
