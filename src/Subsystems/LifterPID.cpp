@@ -28,6 +28,7 @@ double LifterPID::ReturnPIDInput()
 }
 void LifterPID::Reset()
 {
+	Disable(); // PID must be disabled or weird stuff happens
 	l->Log("LifterPID::Reset(); Calibrating forklift...", 1);
 	while (lifterMotor->IsFwdLimitSwitchClosed() == false) // This REQUIRES that the Appropriate (Fwd) Limit Switch is wired into the Talon at the BOTTOM
 	{
@@ -36,12 +37,14 @@ void LifterPID::Reset()
 	lifterEncoder->Reset();
 	SetSetpoint(0);
 	l->Log("LifterPID::Reset(); Done.", 1);
+	Enable();
 }
 void LifterPID::UsePIDOutput(double output)
 {
-	lifterMotor->Set(output);
+	lifterMotor->Set(-output); // 2015 robot requires opposite output than what PID spits out
 }
-void LifterPID::UpdateSetpoint(int setpoint) {
+void LifterPID::UpdateSetpoint(int setpoint)
+{
 	SetSetpoint(setpoint);
 }
 void LifterPID::InitDefaultCommand()
