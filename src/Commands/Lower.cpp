@@ -1,4 +1,5 @@
 #include "Lower.h"
+#include "../RobotMap.h"
 
 Lower::Lower(DataLogger *logger)
 {
@@ -11,7 +12,7 @@ void Lower::Initialize()
 {
 	lifterpid->Disable();
 	l->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1)", DEBUG_MESSAGE);
-	lifterpid->lifterMotor->Set(1); // WARNING could be the wrong direction
+	lifterpid->lifterMotor->Set(1 * MANUAL_SPEED); // WARNING could be the wrong direction
 	l->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
 }
 
@@ -31,6 +32,7 @@ bool Lower::IsFinished()
 void Lower::End()
 {
 	lifterpid->lifterMotor->Set(0);
+	Wait(PID_DELAY);
 	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
 	lifterpid->Enable();
 }
@@ -40,6 +42,7 @@ void Lower::End()
 void Lower::Interrupted()
 {
 	lifterpid->lifterMotor->Set(0);
+	Wait(PID_DELAY);
 	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
 	lifterpid->Enable();
 }

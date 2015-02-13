@@ -22,6 +22,11 @@
 #define UPPER_LIMIT_PORT		0
 #define LOWER_LIMIT_PORT		1
 
+// these multipliers control speed of forks
+#define PID_SPEED 	0.55
+#define MANUAL_SPEED 0.7
+
+#define PID_DELAY .1
 
 // Pneumatic port configuration
 #define CYLINDER_PORT0 0 // Gripper solenoid wired to port 0 on pneumatic break-out card
