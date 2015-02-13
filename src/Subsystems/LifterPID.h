@@ -15,11 +15,11 @@
 class LifterPID: public PIDSubsystem
 {
 private:
-	Encoder* lifterEncoder;
 //	DigitalInput* upperLimit;
 //	DigitalInput* lowerLimit;
 public:
 	LifterPID(DataLogger*);
+	Encoder* lifterEncoder;
 	double ReturnPIDInput();
 	void UsePIDOutput(double);
 	void InitDefaultCommand();

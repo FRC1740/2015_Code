@@ -50,7 +50,7 @@ void LifterPID::UpdateSetpoint(int setpoint)
 void LifterPID::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	SetDefaultCommand(new Level_1(l)); // The argument is a lower case "ell"
+	// SetDefaultCommand(new Level_1(l)); // no default command!
 }
 
 void LifterPID::BottomLimitCheck()

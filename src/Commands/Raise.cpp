@@ -9,6 +9,7 @@ Raise::Raise(DataLogger *logger)
 // Called just before this Command runs the first time
 void Raise::Initialize()
 {
+	lifterpid->Disable();
 	l->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1)", DEBUG_MESSAGE);
 	lifterpid->lifterMotor->Set(-1); // WARNING could be the wrong direction
 	l->Log("Lower::Initialize(); Lowering forks!", DEBUG_MESSAGE);
@@ -30,6 +31,8 @@ bool Raise::IsFinished()
 void Raise::End()
 {
 	lifterpid->lifterMotor->Set(0);
+	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
+	lifterpid->Enable();
 }
 
 // Called when another command which requires one or more of the same
@@ -37,4 +40,6 @@ void Raise::End()
 void Raise::Interrupted()
 {
 	lifterpid->lifterMotor->Set(0);
+	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
+	lifterpid->Enable();
 }
