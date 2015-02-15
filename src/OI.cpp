@@ -3,6 +3,7 @@
 #include "Commands/Release.h"
 #include "Commands/Raise.h"
 #include "Commands/Lower.h"
+#include "Commands/MoveToLevel.h"
 #include "Commands/PrintRange.h"
 #include "Commands/LightLED.h"
 #include "DataLogger.h"
@@ -50,9 +51,9 @@ OI::OI(DataLogger *logger)
     JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
 	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
-//    threeAxis_7->WhenPressed(new Level_1(logger));
- //   threeAxis_9->WhenPressed(new Level_2(logger));
-   // threeAxis_11->WhenPressed(new Level_3(logger));
+    threeAxis_7->WhenPressed(new MoveToLevel(LEVEL_1));
+    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_2));
+    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_3));
 
 
     /*

@@ -20,7 +20,7 @@ void CommandBase::init(DataLogger *logger) {
 	SmartDashboard::PutData(drivetrain); // i saw 190 doing this, looks neat
 	SmartDashboard::PutData(lifter);
 	gripper = new Gripper(); // Grab, Release Forks
-	lifter = new Lifter(logger);
+	lifter = new Lifter();
 	rangefinder = new RangeFinder(); // find distances!
 	oi = new OI(logger);
 }
