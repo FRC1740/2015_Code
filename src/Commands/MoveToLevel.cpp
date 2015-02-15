@@ -21,7 +21,7 @@ void MoveToLevel::Initialize()
 
 void MoveToLevel::Execute()
 {
-	float speed = abs(lifter->lifterEncoder->Get() - Setpoint) / MAX_ENCODER_VALUE;
+	float speed = sqrt(abs(lifter->lifterEncoder->Get() - Setpoint)) / sqrt(MAX_ENCODER_VALUE);  // sqrt to take longer to reach min speed
 	if (speed < MIN_SPEED){
 		speed = MIN_SPEED;
 	}
