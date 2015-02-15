@@ -9,6 +9,7 @@ MoveToLevel::MoveToLevel(int encoderLevel)
 
 void MoveToLevel::Initialize()
 {
+	datalogger->Log("Starting to move to a level", STATUS_MESSAGE);
 	if (lifter->lifterEncoder->Get() > Setpoint)
 	{
 		direction = DOWN;
@@ -16,6 +17,13 @@ void MoveToLevel::Initialize()
 	else
 	{
 		direction = UP;
+	}
+	if (direction == UP)
+	{
+		datalogger->Log("We need to move upward", DEBUG_MESSAGE);
+	}
+	else {
+		datalogger->Log("We need to move downward", DEBUG_MESSAGE);
 	}
 }
 
@@ -28,6 +36,9 @@ void MoveToLevel::Execute()
 	else if (speed > MAX_SPEED){
 		speed = MAX_SPEED;
 	}
+//	char speedString[24];
+//	sprintf(speedString,"%d", speed);  // FIX ME, how do i do this with a float?
+//	datalogger->Log("speedString", DEBUG_MESSAGE);
 	lifter->lifterMotor->Set(speed);
 }
 

@@ -7,6 +7,7 @@ LightLED::LightLED()
 
 void LightLED::Initialize()
 {
+	datalogger->Log("Lighting a LED", STATUS_MESSAGE);
 	return;
 }
 
@@ -24,6 +25,7 @@ bool LightLED::IsFinished()
 // Called once after isFinished returns true
 void LightLED::End()
 {
+	datalogger->Log("Ending, turning off LED", STATUS_MESSAGE);
 	oi->launchPad->SetOutput(1, false);
 }
 
@@ -31,5 +33,6 @@ void LightLED::End()
 // subsystems is scheduled to run
 void LightLED::Interrupted()
 {
+	datalogger->Log("Interrupted, turning off LED", STATUS_MESSAGE);
 	oi->launchPad->SetOutput(1, false);
 }

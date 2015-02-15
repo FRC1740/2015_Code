@@ -10,9 +10,9 @@ Grab::Grab()
 // Called just before this Command runs the first time
 void Grab::Initialize()
 {
-//	l->Log("Grab::Initialize(); Calling subsystem gripper->Grab()", DEBUG_MESSAGE);
+	datalogger->Log("Grab::Initialize(); Calling subsystem gripper->Grab()", DEBUG_MESSAGE);
 	gripper->Grab();
-//	l->Log("Grab::Initialize(); Grabbed a tote!", DEBUG_MESSAGE);
+	datalogger->Log("Grab::Initialize(); Grabbed a tote!", DEBUG_MESSAGE);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -30,6 +30,7 @@ bool Grab::IsFinished()
 // Called once after isFinished returns true
 void Grab::End()
 {
+	datalogger->Log("Grab is ending", VERBOSE_MESSAGE);
 	return;
 }
 
@@ -37,5 +38,6 @@ void Grab::End()
 // subsystems is scheduled to run
 void Grab::Interrupted()
 {
+	datalogger->Log("Grab was interrupted", ERROR_MESSAGE);
 	return;
 }

@@ -10,9 +10,9 @@ Lower::Lower()
 // Called just before this Command runs the first time
 void Lower::Initialize()
 {
-//	l->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1 * MANUAL_SPEED)", DEBUG_MESSAGE);
+	datalogger->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1 * MANUAL_SPEED)", DEBUG_MESSAGE);
 	lifter->lifterMotor->Set(1 * MANUAL_SPEED); // WARNING could be the wrong direction
-//	l->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
+	datalogger->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -37,5 +37,6 @@ void Lower::End()
 // subsystems is scheduled to run
 void Lower::Interrupted()
 {
+	datalogger->Log("Done lifting, stopping lifter", DEBUG_MESSAGE);
 	lifter->Brake();
 }

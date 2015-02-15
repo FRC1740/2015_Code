@@ -14,7 +14,7 @@ ThreeAxisDrive::ThreeAxisDrive()
 
 void ThreeAxisDrive::Initialize()
 {
-//	l->Log("ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
+	datalogger->Log("ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void ThreeAxisDrive::Execute()
@@ -50,7 +50,7 @@ void ThreeAxisDrive::Execute()
 		gfl=fl; gfr=fr; grl=rl; grr=rr;
 		char *data = new char[128];
 		sprintf(data, "We're moving: %2.1f, %2.1f, %2.1f, %2.1f; X=%2.1f, Y=%2.1f, Twist=%2.1f", fl, fr, rl, rr, x, y, t);
-//		l->Log(data, DEBUG_MESSAGE);
+		datalogger->Log(data, DEBUG_MESSAGE);
 	}
 
 #endif
@@ -75,7 +75,7 @@ bool ThreeAxisDrive::IsFinished()
 void ThreeAxisDrive::End()
 {
 	drivetrain->Stop();
-//	l->Log("ThreeAxisDrive::End()", STATUS_MESSAGE);
+	datalogger->Log("ThreeAxisDrive::End()", STATUS_MESSAGE);
 }
 
 // Called when another command which requires one or more of the same
@@ -83,5 +83,5 @@ void ThreeAxisDrive::End()
 void ThreeAxisDrive::Interrupted()
 {
 	drivetrain->Stop();
-//	l->Log("ThreeAxisDrive::Interrupted()", STATUS_MESSAGE);
+	datalogger->Log("ThreeAxisDrive::Interrupted()", STATUS_MESSAGE);
 }

@@ -9,14 +9,14 @@ BasicAuto::BasicAuto()
 
 void BasicAuto::Initialize() // called once when the command starts
 {
-
+	datalogger->Log("starting basic auto", STATUS_MESSAGE);
 	SetTimeout(3);
 }
 
 void BasicAuto::Execute()  // called every ~20ms while the command is running
 {
-
-	drivetrain->Go(1, 1,  1, 1);  // strafe
+	datalogger->Log("Basic Auto Driving", VERBOSE_MESSAGE);
+	drivetrain->Go(1, 1,  1, 1);
 }
 
 bool BasicAuto::IsFinished()  // return true to end the command
@@ -26,10 +26,12 @@ bool BasicAuto::IsFinished()  // return true to end the command
 
 void BasicAuto::End() // called once when the command ends
 {
-
+	datalogger->Log("Basic Auto timed out, stopping", STATUS_MESSAGE);
+	drivetrain->Stop();
 }
 
 void BasicAuto::Interrupted()  // called when command is interrupted (something else tries to use the same subsystem)
 {
-
+	datalogger->Log("Basic Auto interrupted, stopping", STATUS_MESSAGE);
+	drivetrain->Stop();
 }

@@ -4,6 +4,8 @@
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
+// TODO end calibration if encoder isnt changing
+
 class CalibrateLifter: public CommandBase
 {
 public:
