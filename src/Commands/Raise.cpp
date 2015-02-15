@@ -3,16 +3,15 @@
 
 Raise::Raise(DataLogger *logger)
 {
-	Requires(lifterpid);
+	Requires(lifter);
 	l=logger;
 }
 
 // Called just before this Command runs the first time
 void Raise::Initialize()
 {
-	lifterpid->Disable();
-	l->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1)", DEBUG_MESSAGE);
-	lifterpid->lifterMotor->Set(-1 * MANUAL_SPEED); // WARNING could be the wrong direction
+	l->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1 * MANUAL_SPEED)", DEBUG_MESSAGE);
+	lifter->lifterMotor->Set(-1 * MANUAL_SPEED); // WARNING could be the wrong direction
 	l->Log("Lower::Initialize(); Lowering forks!", DEBUG_MESSAGE);
 }
 
@@ -31,18 +30,12 @@ bool Raise::IsFinished()
 // Called once after isFinished returns true
 void Raise::End()
 {
-	lifterpid->lifterMotor->Set(0);
-	Wait(PID_DELAY);
-	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
-	lifterpid->Enable();
+	lifter->Brake();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Raise::Interrupted()
 {
-	lifterpid->lifterMotor->Set(0);
-	Wait(PID_DELAY);
-	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
-	lifterpid->Enable();
+	lifter->Brake();
 }
