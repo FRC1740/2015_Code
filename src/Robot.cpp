@@ -38,7 +38,7 @@ private:
 		logger = new DataLogger();
 		logger->Log("RobotInit()", STATUS_MESSAGE);
 		CommandBase::init(logger);
-		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
+//		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
 
 		drivemodechooser = new SendableChooser();
 

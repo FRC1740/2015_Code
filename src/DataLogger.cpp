@@ -9,7 +9,6 @@
 
 DataLogger::DataLogger()
 {
-	// TODO Auto-generated constructor stub
 	printf("starting data logger\n");
 	strcpy(logfile, "/media/sda1/log_"); // Log file name
 	currentTime=time(0);
