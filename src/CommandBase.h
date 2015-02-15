@@ -25,6 +25,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *drivetrain;
+	static DataLogger *datalogger;
 	static Gripper *gripper;
 	static Lifter *lifter;
 	static OI *oi;

@@ -1,10 +1,10 @@
+#include <Commands/Autos/BasicAuto.h>
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/Drive/StandardTankDrive.h"
 #include "Commands/Drive/MecanumTankDrive.h"
 #include "Commands/Drive/ThreeAxisDrive.h"
 #include "Commands/Drive/XBoxDrive.h"
-#include "Commands/Autos/Autonomous.h"
 #include "CommandBase.h"
 
 
@@ -23,6 +23,7 @@
 
 class CommandBasedRobot : public IterativeRobot {
 private:
+	// TODO can i initialize a pointer to datalogger here?
 	Command *autonomousCommand;
 	Command *teleopcommand;
 	LiveWindow *lw;
@@ -31,7 +32,7 @@ private:
 	
 	virtual void RobotInit()
 	{
-//		 = new DataLogger();
+
 //		logger->Log("RobotInit()", STATUS_MESSAGE);
 		CommandBase::init();
 //		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
@@ -44,7 +45,7 @@ private:
 		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
 //		->Log("added objects", VERBOSE_MESSAGE);
-		autonomousCommand = new Autonomous();
+		autonomousCommand = new BasicAuto();
 
 		lw = LiveWindow::GetInstance();
 //		->Log("Starting robot!", VERBOSE_MESSAGE);
