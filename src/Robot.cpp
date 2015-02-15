@@ -1,12 +1,10 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/StandardTankDrive.h"
-#include "Commands/MecanumTankDrive.h"
-#include "Commands/ThreeAxisDrive.h"
-#include "Commands/XBoxDrive.h"
-#include "Commands/Autonomous.h"
-#include "Commands/Grab.h"
-#include "Commands/Release.h"
+#include "Commands/Drive/StandardTankDrive.h"
+#include "Commands/Drive/MecanumTankDrive.h"
+#include "Commands/Drive/ThreeAxisDrive.h"
+#include "Commands/Drive/XBoxDrive.h"
+#include "Commands/Autos/Autonomous.h"
 #include "CommandBase.h"
 #include "DataLogger.h"
 
@@ -29,7 +27,6 @@ private:
 	Command *teleopcommand;
 	LiveWindow *lw;
 	Compressor *compressor;
-	Command *grabCommand, *releaseCommand, *raiseCommand, *lowerCommand;
 	SendableChooser *drivemodechooser;
 	DataLogger *logger;
 	

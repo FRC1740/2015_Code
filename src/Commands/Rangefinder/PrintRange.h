@@ -1,7 +1,7 @@
 #ifndef PrintRange_H
 #define PrintRange_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class PrintRange: public CommandBase

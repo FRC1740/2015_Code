@@ -1,14 +1,13 @@
-#ifndef XBoxDrive_H
-#define XBoxDrive_H
+#ifndef Release_H
+#define Release_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
-class XBoxDrive: public CommandBase
+class Release: public CommandBase
 {
-private:
 public:
-	XBoxDrive(DataLogger *);
+	Release(DataLogger *);
 	DataLogger *l;
 	void Initialize();
 	void Execute();

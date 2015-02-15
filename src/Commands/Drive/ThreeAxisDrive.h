@@ -2,7 +2,7 @@
 #define ThreeAxisDrive_H
 
 #include "math.h"
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 #include "DataLogger.h"
 

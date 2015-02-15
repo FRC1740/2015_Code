@@ -1,11 +1,11 @@
 #include "OI.h"
-#include "Commands/Grab.h"
-#include "Commands/Release.h"
-#include "Commands/Raise.h"
-#include "Commands/Lower.h"
-#include "Commands/MoveToLevel.h"
-#include "Commands/PrintRange.h"
-#include "Commands/LightLED.h"
+#include "Commands/Gripper/Grab.h"
+#include "Commands/Gripper/Release.h"
+#include "Commands/Lifter/Raise.h"
+#include "Commands/Lifter/Lower.h"
+#include "Commands/Lifter/MoveToLevel.h"
+#include "Commands/Rangefinder/PrintRange.h"
+#include "Commands/Launchpad/LightLED.h"
 #include "DataLogger.h"
 
 OI::OI(DataLogger *logger)

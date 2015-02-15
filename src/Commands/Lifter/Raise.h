@@ -1,13 +1,13 @@
-#ifndef Grab_H
-#define Grab_H
+#ifndef Raise_H
+#define Raise_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Grab: public CommandBase
+class Raise: public CommandBase
 {
 public:
-	Grab(DataLogger *);
+	Raise(DataLogger *);
 	DataLogger *l;
 	void Initialize();
 	void Execute();

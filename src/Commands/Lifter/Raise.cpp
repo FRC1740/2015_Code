@@ -1,5 +1,5 @@
 #include "Raise.h"
-#include "../RobotMap.h"
+#include "../../RobotMap.h"
 
 Raise::Raise(DataLogger *logger)
 {

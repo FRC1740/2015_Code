@@ -1,13 +1,13 @@
-#ifndef Release_H
-#define Release_H
+#ifndef Lower_H
+#define Lower_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Release: public CommandBase
+class Lower: public CommandBase
 {
 public:
-	Release(DataLogger *);
+	Lower(DataLogger *);
 	DataLogger *l;
 	void Initialize();
 	void Execute();

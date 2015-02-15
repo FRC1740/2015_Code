@@ -1,7 +1,7 @@
 #ifndef StandardTankDrive_H
 #define StandardTankDrive_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class StandardTankDrive: public CommandBase

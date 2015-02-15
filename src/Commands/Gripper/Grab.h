@@ -1,13 +1,13 @@
-#ifndef Lower_H
-#define Lower_H
+#ifndef Grab_H
+#define Grab_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Lower: public CommandBase
+class Grab: public CommandBase
 {
 public:
-	Lower(DataLogger *);
+	Grab(DataLogger *);
 	DataLogger *l;
 	void Initialize();
 	void Execute();

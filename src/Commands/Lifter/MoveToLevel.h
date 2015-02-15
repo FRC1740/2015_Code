@@ -1,7 +1,7 @@
 #ifndef MoveToLevel_H
 #define MoveToLevel_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 #include <math.h>

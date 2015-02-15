@@ -1,7 +1,7 @@
 #ifndef CalibrateLifter_H
 #define CalibrateLifter_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class CalibrateLifter: public CommandBase

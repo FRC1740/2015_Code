@@ -1,7 +1,7 @@
 #ifndef MecanumTankDrive_H
 #define MecanumTankDrive_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class MecanumTankDrive: public CommandBase

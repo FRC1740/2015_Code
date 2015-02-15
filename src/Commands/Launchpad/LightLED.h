@@ -1,7 +1,7 @@
 #ifndef LightLED_H
 #define LightLED_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class LightLED: public CommandBase

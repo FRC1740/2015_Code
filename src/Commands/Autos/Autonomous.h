@@ -1,14 +1,13 @@
-#ifndef Raise_H
-#define Raise_H
+#ifndef Autonomous_H
+#define Autonomous_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Raise: public CommandBase
+class Autonomous: public CommandBase
 {
 public:
-	Raise(DataLogger *);
-	DataLogger *l;
+	Autonomous();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

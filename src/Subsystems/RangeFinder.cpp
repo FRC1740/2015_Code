@@ -1,6 +1,5 @@
 #include "RangeFinder.h"
 #include "../RobotMap.h"
-#include "../Commands/PrintRange.h" // YOU MUST INCLUDE printrange to set it as the default command
 
 RangeFinder::RangeFinder() :
 	Subsystem("RangeFinder")
