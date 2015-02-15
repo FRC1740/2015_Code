@@ -1,4 +1,5 @@
 #include "Raise.h"
+#include "../RobotMap.h"
 
 Raise::Raise(DataLogger *logger)
 {
@@ -11,7 +12,7 @@ void Raise::Initialize()
 {
 	lifterpid->Disable();
 	l->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1)", DEBUG_MESSAGE);
-	lifterpid->lifterMotor->Set(-1); // WARNING could be the wrong direction
+	lifterpid->lifterMotor->Set(-1 * MANUAL_SPEED); // WARNING could be the wrong direction
 	l->Log("Lower::Initialize(); Lowering forks!", DEBUG_MESSAGE);
 }
 
@@ -31,6 +32,7 @@ bool Raise::IsFinished()
 void Raise::End()
 {
 	lifterpid->lifterMotor->Set(0);
+	Wait(PID_DELAY);
 	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
 	lifterpid->Enable();
 }
@@ -40,6 +42,7 @@ void Raise::End()
 void Raise::Interrupted()
 {
 	lifterpid->lifterMotor->Set(0);
+	Wait(PID_DELAY);
 	lifterpid->UpdateSetpoint(lifterpid->lifterEncoder->Get());
 	lifterpid->Enable();
 }

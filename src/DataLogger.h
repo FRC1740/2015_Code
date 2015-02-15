@@ -8,7 +8,7 @@
 #ifndef DATALOGGER_H_
 #define DATALOGGER_H_
 
-#include <timer.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,6 +36,7 @@ private:
 	// however the motors are public since its clearer to directly control the motors instead of having individual set functions
 	Timer gameTime;
 	FILE *fh;
+	time_t currentTime;
 	int abort=true;
 	char logfile[256];
 	char buffer[256];

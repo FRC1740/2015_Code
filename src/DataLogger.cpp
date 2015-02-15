@@ -9,8 +9,14 @@
 
 DataLogger::DataLogger()
 {
-	// TODO Auto-generated constructor stub
-	strcpy(logfile, "/media/sda1/log.txt"); // Log file name
+	printf("starting data logger\n");
+	strcpy(logfile, "/media/sda1/log_"); // Log file name
+	currentTime=time(0);
+	char now[256];
+	sprintf(now, "%ld", currentTime);
+	strcat(logfile, now);
+	strcat(logfile, ".txt");
+	printf(logfile);
 	fh = fopen(logfile, "w+");
 	if (fh != NULL)
 	{

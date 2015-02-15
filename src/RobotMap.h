@@ -22,6 +22,14 @@
 #define UPPER_LIMIT_PORT		0
 #define LOWER_LIMIT_PORT		1
 
+// these multipliers control speed of forks
+#define PID_SPEED 	0.55
+#define MANUAL_SPEED 0.7
+
+#define PID_DELAY .1 // this is the delay before reenabling pid after manual override
+
+#define FWD  1 // these are directions relative to the robot
+#define REV -1
 
 // Pneumatic port configuration
 #define CYLINDER_PORT0 0 // Gripper solenoid wired to port 0 on pneumatic break-out card
@@ -31,7 +39,7 @@
 
 // Forklift Levels
 #define LEVEL_ONE 0 // // We reset encoder to 0 at bottom limit switch
-#define LEVEL_TWO 600 // SWAG
-#define LEVEL_THREE 1200 // SWAG
+#define LEVEL_TWO 375 // SWAG
+#define LEVEL_THREE 750 // SWAG
 
 #endif

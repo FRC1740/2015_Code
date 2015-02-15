@@ -1,7 +1,8 @@
 #include "LifterPID.h"
+#include "../RobotMap.h"
 #include "../Commands/Level_1.h" // YOU MUST INCLUDE this to set it as the default command
 
-LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 1.0, 0, 0)
+LifterPID::LifterPID(DataLogger* logger) : PIDSubsystem("LifterPID", 0.1, 0.01, 0.1)
 {
 	lifterEncoder = new Encoder(LIFTER_ENCODER_PORT_0, LIFTER_ENCODER_PORT_1); // FIXME pick actual port values
 //	lifterMotor = new Victor(LIFTER_MOTOR_PORT);
@@ -32,7 +33,7 @@ void LifterPID::Reset()
 	l->Log("LifterPID::Reset(); Calibrating forklift...", 1);
 	while (lifterMotor->IsFwdLimitSwitchClosed() == false) // This REQUIRES that the Appropriate (Fwd) Limit Switch is wired into the Talon at the BOTTOM
 	{
-		lifterMotor->Set(DOWN);
+		lifterMotor->Set(DOWN * MANUAL_SPEED);
 	}
 	lifterEncoder->Reset();
 	SetSetpoint(0);
@@ -41,7 +42,8 @@ void LifterPID::Reset()
 }
 void LifterPID::UsePIDOutput(double output)
 {
-	lifterMotor->Set(-output); // 2015 robot requires opposite output than what PID spits out
+	SmartDashboard::PutNumber("PID Output", output);
+	lifterMotor->Set(-output * PID_SPEED); // 2015 robot requires opposite output than what PID spits out
 }
 void LifterPID::UpdateSetpoint(int setpoint)
 {

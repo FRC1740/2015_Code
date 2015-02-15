@@ -58,7 +58,7 @@ void ThreeAxisDrive::Execute()
 
 	drivetrain->Go(fl,fr,rl,rr);
 	/*
-	// Alternatively, we can send the joystick inputs directly to the drivetrain->xxx->Set() methods
+	// Alternatively, we can send the joystick inputs directly to the drivetrain->motor->Set() methods
 	drivetrain->front_left_motor->Set(oi->threeAxisJoystick->GetTwist() - oi->threeAxisJoystick->GetY() - oi->threeAxisJoystick->GetX());
 	drivetrain->front_right_motor->Set(oi->threeAxisJoystick->GetTwist() + oi->threeAxisJoystick->GetY() + oi->threeAxisJoystick->GetX());
 	drivetrain->rear_left_motor->Set(oi->threeAxisJoystick->GetTwist() - oi->threeAxisJoystick->GetY() + oi->threeAxisJoystick->GetX());
