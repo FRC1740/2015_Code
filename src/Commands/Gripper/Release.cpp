@@ -1,19 +1,18 @@
 #include "Release.h"
 
-Release::Release(DataLogger *logger)
+Release::Release()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
     Requires(gripper);
-    l=logger;
 }
 
 // Called just before this Command runs the first time
 void Release::Initialize()
 {
-	l->Log("Release::Initialize(); Calling gripper->Release() subsystem", DEBUG_MESSAGE);
+//	l->Log("Release::Initialize(); Calling gripper->Release() subsystem", DEBUG_MESSAGE);
 	gripper->Release();
-	l->Log("Release::Initialize(); Dropped a tote!", DEBUG_MESSAGE);
+//	l->Log("Release::Initialize(); Dropped a tote!", DEBUG_MESSAGE);
 }
 
 // Called repeatedly when this Command is scheduled to run

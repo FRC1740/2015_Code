@@ -6,11 +6,9 @@
 #include "Commands/Lifter/MoveToLevel.h"
 #include "Commands/Rangefinder/PrintRange.h"
 #include "Commands/Launchpad/LightLED.h"
-#include "DataLogger.h"
 
-OI::OI(DataLogger *logger)
+OI::OI()
 {
-	l=logger;
 
 	// Driver Station option A: Sticks 1 & 2 used for Tank Drive
 	tankDriveJoystickLeft = new Joystick(1);
@@ -93,12 +91,12 @@ OI::OI(DataLogger *logger)
 
     // Grabber
     // threeAxis_8->WhileHeld(new PrintRange());
-    NES_2->WhenPressed(new Grab(logger));
-    NES_3->WhenPressed(new Release(logger));
+    NES_2->WhenPressed(new Grab());
+    NES_3->WhenPressed(new Release());
 
     // Lifter
-    NES_9->WhileHeld(new Raise(logger));
-    NES_10->WhileHeld(new Lower(logger));
+    NES_9->WhileHeld(new Raise());
+    NES_10->WhileHeld(new Lower());
 
     JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands

@@ -4,18 +4,16 @@
 #include "math.h"
 #include "../../CommandBase.h"
 #include "WPILib.h"
-#include "DataLogger.h"
 
 class ThreeAxisDrive: public CommandBase
 {
 public:
-	ThreeAxisDrive(DataLogger*);
+	ThreeAxisDrive();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
-	DataLogger *l=NULL;
 	float gfl = 0, gfr = 0, grl = 0, grr = 0; // floats for the motor outputs
 };
 

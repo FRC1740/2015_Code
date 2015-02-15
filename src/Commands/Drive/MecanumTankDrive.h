@@ -7,8 +7,7 @@
 class MecanumTankDrive: public CommandBase
 {
 public:
-	MecanumTankDrive(DataLogger *);
-	DataLogger *l;
+	MecanumTankDrive();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

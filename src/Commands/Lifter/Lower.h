@@ -7,8 +7,7 @@
 class Lower: public CommandBase
 {
 public:
-	Lower(DataLogger *);
-	DataLogger *l;
+	Lower();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -1,18 +1,18 @@
 #include "Lower.h"
 #include "../../RobotMap.h"
 
-Lower::Lower(DataLogger *logger)
+Lower::Lower()
 {
 	Requires(lifter);
-	l=logger;
+
 }
 
 // Called just before this Command runs the first time
 void Lower::Initialize()
 {
-	l->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1 * MANUAL_SPEED)", DEBUG_MESSAGE);
+//	l->Log("Lower::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(1 * MANUAL_SPEED)", DEBUG_MESSAGE);
 	lifter->lifterMotor->Set(1 * MANUAL_SPEED); // WARNING could be the wrong direction
-	l->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
+//	l->Log("Lower::Initialize(); Going Down!", DEBUG_MESSAGE);
 }
 
 // Called repeatedly when this Command is scheduled to run

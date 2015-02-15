@@ -8,8 +8,7 @@ class XBoxDrive: public CommandBase
 {
 private:
 public:
-	XBoxDrive(DataLogger *);
-	DataLogger *l;
+	XBoxDrive();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

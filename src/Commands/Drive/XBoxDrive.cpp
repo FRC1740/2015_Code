@@ -2,17 +2,16 @@
 #include "../../RobotMap.h"
 #include "OI.h"
 
-XBoxDrive::XBoxDrive(DataLogger *logger)
+XBoxDrive::XBoxDrive()
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(drivetrain);
-	l=logger;
 }
 
 // Called just before this Command runs the first time
 void XBoxDrive::Initialize()
 {
-	l->Log("XBoxDrive::Initialize(); XBox Drive",2);
+//	l->Log("XBoxDrive::Initialize(); XBox Drive",2);
 }
 
 // Called repeatedly when this Command is scheduled to run

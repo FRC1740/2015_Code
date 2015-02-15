@@ -6,7 +6,7 @@
 #include "Commands/Drive/XBoxDrive.h"
 #include "Commands/Autos/Autonomous.h"
 #include "CommandBase.h"
-#include "DataLogger.h"
+
 
 
 /* 
@@ -28,28 +28,27 @@ private:
 	LiveWindow *lw;
 	Compressor *compressor;
 	SendableChooser *drivemodechooser;
-	DataLogger *logger;
 	
 	virtual void RobotInit()
 	{
-		logger = new DataLogger();
-		logger->Log("RobotInit()", STATUS_MESSAGE);
-		CommandBase::init(logger);
+//		 = new DataLogger();
+//		logger->Log("RobotInit()", STATUS_MESSAGE);
+		CommandBase::init();
 //		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
 
 		drivemodechooser = new SendableChooser();
 
-		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive(logger));
-		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive(logger));
-		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive(logger));
-		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive(logger));
+		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
+		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
+		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive());
+		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
-		logger->Log("added objects", VERBOSE_MESSAGE);
+//		->Log("added objects", VERBOSE_MESSAGE);
 		autonomousCommand = new Autonomous();
 
 		lw = LiveWindow::GetInstance();
-		logger->Log("Starting robot!", VERBOSE_MESSAGE);
-		logger->Flush();
+//		->Log("Starting robot!", VERBOSE_MESSAGE);
+//		->Flush();
 		CameraServer::GetInstance()->SetQuality(100);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
@@ -59,8 +58,8 @@ private:
 	
 	virtual void AutonomousInit()
 	{
-		logger->Log("AutonomousInit()",STATUS_MESSAGE);
-		logger->Log("Starting Compressor", STATUS_MESSAGE);
+//		->Log("AutonomousInit()",STATUS_MESSAGE);
+//		->Log("Starting Compressor", STATUS_MESSAGE);
 		compressor->Start();
 		autonomousCommand->Start();
 	}
@@ -72,11 +71,11 @@ private:
 	
 	virtual void TeleopInit()
 	{
-		logger->Log("Entering TeleopInit()", STATUS_MESSAGE);
+//		->Log("Entering TeleopInit()", STATUS_MESSAGE);
 		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();
-//		logger->End();
+//		->End();
 	}
 	
 	virtual void TeleopPeriodic()

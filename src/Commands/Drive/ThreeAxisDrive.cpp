@@ -7,15 +7,14 @@
 #define DEADBAND_YAXIS .1
 #define DEADBAND_TWIST .3
 
-ThreeAxisDrive::ThreeAxisDrive(DataLogger *logger)
+ThreeAxisDrive::ThreeAxisDrive()
 {
-	l=logger;
 	Requires(drivetrain);
 }
 
 void ThreeAxisDrive::Initialize()
 {
-	l->Log("ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
+//	l->Log("ThreeAxisDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void ThreeAxisDrive::Execute()
@@ -51,7 +50,7 @@ void ThreeAxisDrive::Execute()
 		gfl=fl; gfr=fr; grl=rl; grr=rr;
 		char *data = new char[128];
 		sprintf(data, "We're moving: %2.1f, %2.1f, %2.1f, %2.1f; X=%2.1f, Y=%2.1f, Twist=%2.1f", fl, fr, rl, rr, x, y, t);
-		l->Log(data, DEBUG_MESSAGE);
+//		l->Log(data, DEBUG_MESSAGE);
 	}
 
 #endif
@@ -76,7 +75,7 @@ bool ThreeAxisDrive::IsFinished()
 void ThreeAxisDrive::End()
 {
 	drivetrain->Stop();
-	l->Log("ThreeAxisDrive::End()", STATUS_MESSAGE);
+//	l->Log("ThreeAxisDrive::End()", STATUS_MESSAGE);
 }
 
 // Called when another command which requires one or more of the same
@@ -84,5 +83,5 @@ void ThreeAxisDrive::End()
 void ThreeAxisDrive::Interrupted()
 {
 	drivetrain->Stop();
-	l->Log("ThreeAxisDrive::Interrupted()", STATUS_MESSAGE);
+//	l->Log("ThreeAxisDrive::Interrupted()", STATUS_MESSAGE);
 }

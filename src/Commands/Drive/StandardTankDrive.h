@@ -7,8 +7,7 @@
 class StandardTankDrive: public CommandBase
 {
 public:
-	StandardTankDrive(DataLogger *);
-	DataLogger *l;
+	StandardTankDrive();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

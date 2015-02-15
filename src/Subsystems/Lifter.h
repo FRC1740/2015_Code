@@ -6,7 +6,6 @@
 
 #include <math.h>
 #include "../RobotMap.h"
-#include "../DataLogger.h"
 
 #define DOWN 1 // FWD (Positive value)
 #define UP -1 // REV (Negative value)

@@ -1,14 +1,13 @@
 #include "MecanumTankDrive.h"
 
-MecanumTankDrive::MecanumTankDrive(DataLogger *logger)
+MecanumTankDrive::MecanumTankDrive()
 {
 	Requires(drivetrain);  // obviously drive modes need exclusive drivetrain access
-	l=logger;
 }
 
 void MecanumTankDrive::Initialize()
 {
-	l->Log("MecanumTankDrive::Initialize()", STATUS_MESSAGE);
+//	l->Log("MecanumTankDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void MecanumTankDrive::Execute()

@@ -7,8 +7,7 @@
 class Grab: public CommandBase
 {
 public:
-	Grab(DataLogger *);
-	DataLogger *l;
+	Grab();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -7,8 +7,7 @@
 class Raise: public CommandBase
 {
 public:
-	Raise(DataLogger *);
-	DataLogger *l;
+	Raise();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

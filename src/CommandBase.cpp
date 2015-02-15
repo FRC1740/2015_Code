@@ -13,7 +13,7 @@ Lifter* CommandBase::lifter = NULL;
 RangeFinder* CommandBase::rangefinder = NULL;
 OI* CommandBase::oi = NULL;
 
-void CommandBase::init(DataLogger *logger) {
+void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 	drivetrain = new DriveTrain();
@@ -22,5 +22,5 @@ void CommandBase::init(DataLogger *logger) {
 	gripper = new Gripper(); // Grab, Release Forks
 	lifter = new Lifter();
 	rangefinder = new RangeFinder(); // find distances!
-	oi = new OI(logger);
+	oi = new OI();
 }

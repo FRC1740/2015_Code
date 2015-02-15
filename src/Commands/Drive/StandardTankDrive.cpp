@@ -1,16 +1,15 @@
 #include "StandardTankDrive.h"
 
 
-StandardTankDrive::StandardTankDrive(DataLogger *logger)
+StandardTankDrive::StandardTankDrive()
 {
 	Requires(drivetrain);
-	l=logger;
 }
 
 // Called just before this Command runs the first time
 void StandardTankDrive::Initialize()
 {
-	l->Log("StandardTankDrive::Initialize()", STATUS_MESSAGE);
+//	l->Log("StandardTankDrive::Initialize()", STATUS_MESSAGE);
 }
 // Called repeatedly when this Command is scheduled to run
 void StandardTankDrive::Execute()
