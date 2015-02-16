@@ -39,12 +39,12 @@ void MoveToLevel::Execute()
 //	char speedString[24];
 //	sprintf(speedString,"%d", speed);  // FIX ME, how do i do this with a float?
 //	datalogger->Log("speedString", DEBUG_MESSAGE);
-	lifter->lifterMotor->Set(speed);
+	lifter->lifterMotor->Set(speed * direction);
 }
 
 bool MoveToLevel::IsFinished()
 {
-	return abs(lifter->lifterEncoder->Get() - Setpoint) > 5;
+	return abs(lifter->lifterEncoder->Get() - Setpoint) < 5;
 }
 
 void MoveToLevel::End()

@@ -30,7 +30,7 @@ bool Grab::IsFinished()
 // Called once after isFinished returns true
 void Grab::End()
 {
-	datalogger->Log("Grab is ending", VERBOSE_MESSAGE);
+	datalogger->Log("Grab::End()", DEBUG_MESSAGE);
 	return;
 }
 

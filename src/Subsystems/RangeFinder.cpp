@@ -1,4 +1,5 @@
 #include "RangeFinder.h"
+#include "../Commands/RangeFinder/PrintRange.h"
 #include "../RobotMap.h"
 
 RangeFinder::RangeFinder() :
@@ -9,7 +10,7 @@ RangeFinder::RangeFinder() :
 
 void RangeFinder::InitDefaultCommand()
 {
-//	SetDefaultCommand(new PrintRange());
+	SetDefaultCommand(new PrintRange());
 }
 
 float RangeFinder::GetVoltage()

@@ -6,7 +6,7 @@
 
 #include <math.h>
 
-#define MAX_ENCODER_VALUE 800  // TODO make this properly reflect the top level
+#define MAX_ENCODER_VALUE 1000  // TODO make this properly reflect the top level
 
 class MoveToLevel: public CommandBase
 {

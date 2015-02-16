@@ -35,7 +35,7 @@ int DataLogger::Log(const char *data, int level)
 	if (abort)
 		return(-1);
 
-	int writeCount;
+	int writeCount = -1;
 
 	if (level <= DEBUG_LEVEL)
 	{

@@ -13,7 +13,7 @@
 // Defined motor speeds
 #define MAX_SPEED 			0.9
 #define MANUAL_SPEED		0.7
-#define MIN_SPEED			0.4
+#define MIN_SPEED			0.5
 #define BRAKE_SPEED			0.1
 
 

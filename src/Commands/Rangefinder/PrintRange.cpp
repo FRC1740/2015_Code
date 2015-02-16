@@ -16,9 +16,9 @@ void PrintRange::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void PrintRange::Execute()
 {
-	printf("Voltage: %f V", rangefinder->GetVoltage());
-	printf("Range: %f in", rangefinder->GetRangeIn());
-	printf("Range: %f ft", rangefinder->GetRangeFt());
+//	printf("Voltage: %f V", rangefinder->GetVoltage());
+//	printf("Range: %f in", rangefinder->GetRangeIn());
+//	printf("Range: %f ft", rangefinder->GetRangeFt());
 	SmartDashboard::PutNumber("Feet", rangefinder->GetRangeFt());
 }
 

@@ -3,6 +3,7 @@
 #include "Commands/Gripper/Release.h"
 #include "Commands/Lifter/Raise.h"
 #include "Commands/Lifter/Lower.h"
+#include "Commands/Lifter/CalibrateLifter.h"
 #include "Commands/Lifter/MoveToLevel.h"
 #include "Commands/Rangefinder/PrintRange.h"
 #include "Commands/Launchpad/LightLED.h"
@@ -49,9 +50,9 @@ OI::OI()
     JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
 	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
-    threeAxis_7->WhenPressed(new MoveToLevel(LEVEL_1));
-    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_2));
-    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_3));
+    threeAxis_7->WhenPressed(new CalibrateLifter());
+    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_1));
+    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_2));
 
 
     /*

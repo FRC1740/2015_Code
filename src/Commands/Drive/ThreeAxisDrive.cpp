@@ -1,6 +1,6 @@
 #include "ThreeAxisDrive.h"
 
-#define SCALE_TWIST .75
+#define SCALE_TWIST 0.4
 #define SCALE_YAXIS 1.0
 #define SCALE_XAXIS 1.0
 #define DEADBAND_XAXIS .1

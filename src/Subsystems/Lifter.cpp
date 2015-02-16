@@ -1,4 +1,5 @@
 #include "Lifter.h"
+#include "../Commands/Lifter/UpdateEncoder.h"
 #include "../RobotMap.h"
 
 Lifter::Lifter() :
@@ -12,7 +13,7 @@ Lifter::Lifter() :
 
 void Lifter::InitDefaultCommand()
 {
-	return;
+	SetDefaultCommand(new UpdateEncoder());
 }
 
 void Lifter::Brake(){
