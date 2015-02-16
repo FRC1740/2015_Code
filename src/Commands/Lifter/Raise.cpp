@@ -9,9 +9,9 @@ Raise::Raise()
 // Called just before this Command runs the first time
 void Raise::Initialize()
 {
-//	l->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1 * MANUAL_SPEED)", DEBUG_MESSAGE);
+	datalogger->Log("Raise::Initialize(); Calling subsystem lifterpid->lifterMotor->Set(-1 * MANUAL_SPEED)", DEBUG_MESSAGE);
 	lifter->lifterMotor->Set(-1 * MANUAL_SPEED); // WARNING could be the wrong direction
-//	l->Log("Lower::Initialize(); Lowering forks!", DEBUG_MESSAGE);
+	datalogger->Log("Lower::Initialize(); Lowering forks!", DEBUG_MESSAGE);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -29,6 +29,7 @@ bool Raise::IsFinished()
 // Called once after isFinished returns true
 void Raise::End()
 {
+	datalogger->Log("Raise Got Stuck, Ending", ERROR_MESSAGE);
 	lifter->Brake();
 }
 
@@ -36,5 +37,6 @@ void Raise::End()
 // subsystems is scheduled to run
 void Raise::Interrupted()
 {
+	datalogger->Log("Raise Finished, ending", STATUS_MESSAGE);
 	lifter->Brake();
 }
