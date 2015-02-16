@@ -1,4 +1,5 @@
 #include <Commands/Autos/BasicAuto.h>
+#include "Commands/Autos/PickUpAndSkateAuto.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/Drive/StandardTankDrive.h"
@@ -29,6 +30,7 @@ private:
 	LiveWindow *lw;
 	Compressor *compressor;
 	SendableChooser *drivemodechooser;
+	SendableChooser *autonomouschooser;
 	
 	virtual void RobotInit()
 	{
@@ -38,14 +40,17 @@ private:
 //		SmartDashboard::init(); // i guess we init the smart dash here.... idk where else to do it, idk if its necessary
 
 		drivemodechooser = new SendableChooser();
-
 		drivemodechooser->AddObject("Standard Tank Drive", new StandardTankDrive());
 		drivemodechooser->AddObject("2 Joystick Mecanum", new MecanumTankDrive());
 		drivemodechooser->AddDefault("3 Axis Drive (1 Joystick)", new ThreeAxisDrive());
 		drivemodechooser->AddObject("3 Axis Xbox Drive", new XBoxDrive());
 		SmartDashboard::PutData("Drive Mode", drivemodechooser);
+
 //		->Log("added objects", VERBOSE_MESSAGE);
-		autonomousCommand = new BasicAuto();
+		autonomouschooser = new SendableChooser();
+		autonomouschooser->AddDefault("Basic Auto: Drive Forward", new BasicAuto());
+		autonomouschooser->AddObject("Fancy Auto: Grab and Skate with Box", new PickUpAndSkateAuto());
+		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
 //		->Log("Starting robot!", VERBOSE_MESSAGE);
@@ -62,6 +67,7 @@ private:
 //		->Log("AutonomousInit()",STATUS_MESSAGE);
 //		->Log("Starting Compressor", STATUS_MESSAGE);
 		compressor->Start();
+		autonomousCommand = (Command *) autonomouschooser->GetSelected();
 		autonomousCommand->Start();
 	}
 	
