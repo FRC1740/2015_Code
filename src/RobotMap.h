@@ -22,12 +22,8 @@
 #define UPPER_LIMIT_PORT		0
 #define LOWER_LIMIT_PORT		1
 
-// these multipliers control speed of forks
-#define PID_SPEED 	0.55
-#define MANUAL_SPEED 0.7
-
-#define PID_DELAY .1 // this is the delay before reenabling pid after manual override
-
+#define LEVEL_1					375
+#define LEVEL_2					750
 #define FWD  1 // these are directions relative to the robot
 #define REV -1
 

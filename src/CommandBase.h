@@ -6,10 +6,11 @@
 
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Gripper.h"
-#include "Subsystems/LifterPID.h"
+#include "Subsystems/Lifter.h"
 #include "Subsystems/RangeFinder.h"
+#include "Subsystems/Datalogger.h"
 #include "OI.h"
-#include "DataLogger.h"
+
 
 
 /**
@@ -21,11 +22,12 @@ class CommandBase: public Command {
 public:
 	CommandBase(const char *name);
 	CommandBase();
-	static void init(DataLogger *);
+	static void init();
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *drivetrain;
+	static DataLogger *datalogger;
 	static Gripper *gripper;
-	static LifterPID *lifterpid;
+	static Lifter *lifter;
 	static OI *oi;
 	static RangeFinder *rangefinder;
 };

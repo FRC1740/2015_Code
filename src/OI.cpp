@@ -1,18 +1,15 @@
 #include "OI.h"
-#include "Commands/Grab.h"
-#include "Commands/Release.h"
-#include "Commands/Raise.h"
-#include "Commands/Lower.h"
-#include "Commands/Level_1.h"
-#include "Commands/Level_2.h"
-#include "Commands/Level_3.h"
-#include "Commands/PrintRange.h"
-#include "Commands/LightLED.h"
-#include "DataLogger.h"
+#include "Commands/Gripper/Grab.h"
+#include "Commands/Gripper/Release.h"
+#include "Commands/Lifter/Raise.h"
+#include "Commands/Lifter/Lower.h"
+#include "Commands/Lifter/CalibrateLifter.h"
+#include "Commands/Lifter/MoveToLevel.h"
+#include "Commands/Rangefinder/PrintRange.h"
+#include "Commands/Launchpad/LightLED.h"
 
-OI::OI(DataLogger *logger)
+OI::OI()
 {
-	l=logger;
 
 	// Driver Station option A: Sticks 1 & 2 used for Tank Drive
 	tankDriveJoystickLeft = new Joystick(1);
@@ -53,9 +50,9 @@ OI::OI(DataLogger *logger)
     JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
 	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
-    threeAxis_7->WhenPressed(new Level_1(logger));
-    threeAxis_9->WhenPressed(new Level_2(logger));
-    threeAxis_11->WhenPressed(new Level_3(logger));
+    threeAxis_7->WhenPressed(new CalibrateLifter());
+    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_1));
+    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_2));
 
 
     /*
@@ -95,12 +92,12 @@ OI::OI(DataLogger *logger)
 
     // Grabber
     // threeAxis_8->WhileHeld(new PrintRange());
-    NES_2->WhenPressed(new Grab(logger));
-    NES_3->WhenPressed(new Release(logger));
+    NES_2->WhenPressed(new Grab());
+    NES_3->WhenPressed(new Release());
 
     // Lifter
-    NES_9->WhileHeld(new Raise(logger));
-    NES_10->WhileHeld(new Lower(logger));
+    NES_9->WhileHeld(new Raise());
+    NES_10->WhileHeld(new Lower());
 
     JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands
