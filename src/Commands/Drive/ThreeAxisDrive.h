@@ -1,5 +1,5 @@
-#ifndef ThreeAxisDrive_H
-#define ThreeAxisDrive_H
+#ifndef THREEAXISDRIVE_H
+#define THREEAXISDRIVE_H
 
 #include "math.h"
 #include "../../CommandBase.h"

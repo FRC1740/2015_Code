@@ -1,5 +1,5 @@
-#ifndef COMMAND_BASE_H
-#define COMMAND_BASE_H
+#ifndef COMMANDBASE_H
+#define COMMANDBASE_H
 
 #include <Commands/Command.h>
 #include <Commands/Scheduler.h>

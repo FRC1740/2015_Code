@@ -1,5 +1,5 @@
-#ifndef Lower_H
-#define Lower_H
+#ifndef LOWER_H
+#define LOWER_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

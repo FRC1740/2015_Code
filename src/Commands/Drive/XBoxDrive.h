@@ -1,5 +1,5 @@
-#ifndef XBoxDrive_H
-#define XBoxDrive_H
+#ifndef XBOXDRIVE_H
+#define XBOXDRIVE_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

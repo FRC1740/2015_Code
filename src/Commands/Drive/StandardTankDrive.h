@@ -1,5 +1,5 @@
-#ifndef StandardTankDrive_H
-#define StandardTankDrive_H
+#ifndef STANDARDTANKDRIVE_H
+#define STANDARDTANKDRIVE_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

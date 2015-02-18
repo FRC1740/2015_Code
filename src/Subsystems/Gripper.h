@@ -1,5 +1,5 @@
-#ifndef Gripper_H
-#define Gripper_H
+#ifndef GRIPPER_H
+#define GRIPPER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"

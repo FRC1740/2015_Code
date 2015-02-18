@@ -1,5 +1,5 @@
-#ifndef Release_H
-#define Release_H
+#ifndef RELEASE_H
+#define RELEASE_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

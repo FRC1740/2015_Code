@@ -1,5 +1,5 @@
-#ifndef Datalogger_H
-#define Datalogger_H
+#ifndef DATALOGGER_H
+#define DATALOGGER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"

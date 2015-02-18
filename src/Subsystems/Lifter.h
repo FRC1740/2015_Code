@@ -1,5 +1,5 @@
-#ifndef Lifter_H
-#define Lifter_H
+#ifndef LIFTER_H
+#define LIFTER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"

@@ -1,5 +1,5 @@
-#ifndef RangeFinder_H
-#define RangeFinder_H
+#ifndef RANGEFINDER_H
+#define RANGEFINDER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
