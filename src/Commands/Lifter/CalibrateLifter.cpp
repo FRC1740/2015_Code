@@ -1,5 +1,7 @@
 #include "CalibrateLifter.h"
 
+// TODO move stuff to execute so we can cancel if we get stuck
+
 CalibrateLifter::CalibrateLifter()
 {
 	Requires(lifter);
@@ -27,12 +29,12 @@ bool CalibrateLifter::IsFinished()
 
 void CalibrateLifter::End()
 {
-	datalogger->Log("Calibration Completed", STATUS_MESSAGE);
+	datalogger->Log("CalibrateLifter::End(); Calibration Completed", STATUS_MESSAGE);
 	lifter->Brake();
 }
 
 void CalibrateLifter::Interrupted()
 {
-	datalogger->Log("Calibration Failed", ERROR_MESSAGE);
+	datalogger->Log("CalibrateLifter::Interrupted(); Calibration Failed", ERROR_MESSAGE);
 	lifter->Brake();
 }

@@ -15,7 +15,6 @@ private:
 	Solenoid *s1;
 public:
 	Gripper();
-	void InitDefaultCommand();
 	void Grab();
 	void Release();
 };

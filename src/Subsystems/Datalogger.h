@@ -25,9 +25,6 @@
 class DataLogger
 {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-	// however the motors are public since its clearer to directly control the motors instead of having individual set functions
 	Timer gameTime;
 	FILE *fh;
 	time_t currentTime;
@@ -43,4 +40,4 @@ public:
 	int End();
 };
 
-#endif /* DATALOGGER_H_ */
+#endif

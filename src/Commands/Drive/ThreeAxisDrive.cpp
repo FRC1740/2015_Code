@@ -1,12 +1,5 @@
 #include "ThreeAxisDrive.h"
 
-#define SCALE_TWIST 0.4
-#define SCALE_YAXIS 1.0
-#define SCALE_XAXIS 1.0
-#define DEADBAND_XAXIS .1
-#define DEADBAND_YAXIS .1
-#define DEADBAND_TWIST .3
-
 ThreeAxisDrive::ThreeAxisDrive()
 {
 	Requires(drivetrain);
@@ -21,7 +14,6 @@ void ThreeAxisDrive::Execute()
 {
 
 	// The drivetrain->Go() method has built in handling for reversing motors on the left side...
-	/* */
 
 	float x = 0, y = 0, t = 0; // floats for the axes x, y, twist
 	float fl = 0, fr = 0, rl = 0, rr = 0; // floats for the motor outputs
@@ -65,21 +57,17 @@ void ThreeAxisDrive::Execute()
 	*/
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool ThreeAxisDrive::IsFinished()
 {
 	return false;
 }
 
-// Called once after isFinished returns true
 void ThreeAxisDrive::End()
 {
 	drivetrain->Stop();
-	datalogger->Log("ThreeAxisDrive::End()", STATUS_MESSAGE);
+	datalogger->Log("ThreeAxisDrive::End()", ERROR_MESSAGE);
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 void ThreeAxisDrive::Interrupted()
 {
 	drivetrain->Stop();

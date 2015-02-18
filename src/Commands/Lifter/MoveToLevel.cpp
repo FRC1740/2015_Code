@@ -1,5 +1,7 @@
 #include "MoveToLevel.h"
 
+// TODO stuck detection here too
+
 MoveToLevel::MoveToLevel(int encoderLevel)
 {
 	Requires(lifter);
@@ -9,7 +11,7 @@ MoveToLevel::MoveToLevel(int encoderLevel)
 
 void MoveToLevel::Initialize()
 {
-	datalogger->Log("Starting to move to a level", STATUS_MESSAGE);
+	datalogger->Log("MoveToLevel::Initialize()", STATUS_MESSAGE);
 	if (lifter->lifterEncoder->Get() > Setpoint)
 	{
 		direction = DOWN;
@@ -20,10 +22,11 @@ void MoveToLevel::Initialize()
 	}
 	if (direction == UP)
 	{
-		datalogger->Log("We need to move upward", DEBUG_MESSAGE);
+		datalogger->Log("MoveToLevel::Initialize(); Moving UP", DEBUG_MESSAGE);
 	}
-	else {
-		datalogger->Log("We need to move downward", DEBUG_MESSAGE);
+	else
+	{
+		datalogger->Log("MoveToLevel::Initialize(); Moving DOWN", DEBUG_MESSAGE);
 	}
 }
 
@@ -49,11 +52,12 @@ bool MoveToLevel::IsFinished()
 
 void MoveToLevel::End()
 {
+	datalogger->Log("MoveToLevel::End()", STATUS_MESSAGE);
 	lifter->Brake();
 }
 
-
 void MoveToLevel::Interrupted()
 {
+	datalogger->Log("MoveToLevel::Interrupted()", ERROR_MESSAGE);
 	lifter->Brake();
 }

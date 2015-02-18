@@ -2,16 +2,17 @@
 
 MecanumTankDrive::MecanumTankDrive()
 {
-	Requires(drivetrain);  // obviously drive modes need exclusive drivetrain access
+	Requires(drivetrain);
 }
 
 void MecanumTankDrive::Initialize()
 {
-//	l->Log("MecanumTankDrive::Initialize()", STATUS_MESSAGE);
+	datalogger->Log("MecanumTankDrive::Initialize()", STATUS_MESSAGE);
 }
 
 void MecanumTankDrive::Execute()
 {
+	datalogger->Log("MecanumTankDrive::Initialize()", VERBOSE_MESSAGE);
 	drivetrain->front_left_motor->Set(oi->tankDriveJoystickLeft->GetY() - oi->tankDriveJoystickLeft->GetX());
 	drivetrain->rear_left_motor->Set(oi->tankDriveJoystickLeft->GetY() + oi->tankDriveJoystickLeft->GetX());
 	drivetrain->front_right_motor->Set(oi->tankDriveJoystickRight->GetY() + oi->tankDriveJoystickRight->GetX());
@@ -23,15 +24,14 @@ bool MecanumTankDrive::IsFinished()
 	return false;
 }
 
-// Called once after isFinished returns true
 void MecanumTankDrive::End()
 {
+	datalogger->Log("MecanumTankDrive::End()", ERROR_MESSAGE);
 	drivetrain->Stop();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 void MecanumTankDrive::Interrupted()
 {
+	datalogger->Log("MecanumTankDrive::Interrupted()", STATUS_MESSAGE);
 	drivetrain->Stop();
 }
