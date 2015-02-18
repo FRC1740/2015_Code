@@ -9,8 +9,6 @@
 class Gripper: public Subsystem
 {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 	Solenoid *s0;
 	Solenoid *s1;
 public:

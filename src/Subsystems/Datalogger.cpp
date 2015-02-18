@@ -10,7 +10,7 @@
 
 #include "DataLogger.h"
 
-DataLogger::DataLogger()
+DataLogger::DataLogger() : Subsystem("DataLogger")
 {
 	printf("starting data logger\n");
 	strcpy(logfile, "/media/sda1/log_"); // Log file name

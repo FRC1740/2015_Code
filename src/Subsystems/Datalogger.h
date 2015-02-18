@@ -22,7 +22,7 @@
 #define VERBOSE_MESSAGE 4
 #define DEBUG_LEVEL 4 // Messages with this level or below will be logged
 
-class DataLogger
+class DataLogger: public Subsystem
 {
 private:
 	Timer gameTime;

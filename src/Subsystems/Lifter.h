@@ -16,15 +16,12 @@
 #define MIN_SPEED			0.5
 #define BRAKE_SPEED			0.1
 
-
 class Lifter: public Subsystem
 {
 public:
 	Lifter();
-
 	Encoder* lifterEncoder;
 	CANTalon* lifterMotor;
-
 	void InitDefaultCommand();
 	void Brake();
 };
