@@ -1,5 +1,5 @@
-#ifndef UpdateEncoder_H
-#define UpdateEncoder_H
+#ifndef UPDATEENCODER_H
+#define UPDATEENCODER_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

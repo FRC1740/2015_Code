@@ -8,11 +8,7 @@ CalibrateLifter::CalibrateLifter()
 void CalibrateLifter::Initialize()
 {
 	datalogger->Log("Starting to calibrate lifter", STATUS_MESSAGE);
-	while (lifter->lifterMotor->IsFwdLimitSwitchClosed() == false) // This REQUIRES that the Appropriate (Fwd) Limit Switch is wired into the Talon at the BOTTOM
-	{
-		lifter->lifterMotor->Set(DOWN * MANUAL_SPEED);
-	}
-	lifter->lifterEncoder->Reset();
+	lifter->lifterMotor->Set(DOWN * MANUAL_SPEED);
 }
 
 void CalibrateLifter::Execute()
@@ -22,17 +18,18 @@ void CalibrateLifter::Execute()
 
 bool CalibrateLifter::IsFinished()
 {
-	return true;
+	return lifter->lifterMotor->IsFwdLimitSwitchClosed();
 }
 
 void CalibrateLifter::End()
 {
-	datalogger->Log("Calibration Completed", STATUS_MESSAGE);
 	lifter->Brake();
+	lifter->lifterEncoder->Reset();
+	datalogger->Log("CalibrateLifter::End(); Calibration Completed", STATUS_MESSAGE);
 }
 
 void CalibrateLifter::Interrupted()
 {
-	datalogger->Log("Calibration Failed", ERROR_MESSAGE);
+	datalogger->Log("CalibrateLifter::Interrupted(); Calibration Failed", ERROR_MESSAGE);
 	lifter->Brake();
 }

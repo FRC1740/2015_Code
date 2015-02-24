@@ -1,5 +1,5 @@
-#ifndef Grab_H
-#define Grab_H
+#ifndef GRAB_H
+#define GRAB_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

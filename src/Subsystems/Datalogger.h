@@ -1,5 +1,5 @@
-#ifndef Datalogger_H
-#define Datalogger_H
+#ifndef DATALOGGER_H
+#define DATALOGGER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
@@ -22,12 +22,9 @@
 #define VERBOSE_MESSAGE 4
 #define DEBUG_LEVEL 4 // Messages with this level or below will be logged
 
-class DataLogger
+class DataLogger: public Subsystem
 {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-	// however the motors are public since its clearer to directly control the motors instead of having individual set functions
 	Timer gameTime;
 	FILE *fh;
 	time_t currentTime;
@@ -43,4 +40,4 @@ public:
 	int End();
 };
 
-#endif /* DATALOGGER_H_ */
+#endif

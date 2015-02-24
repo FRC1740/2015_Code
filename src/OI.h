@@ -3,9 +3,6 @@
 
 #include "WPILib.h"
 
-// currently set up for 2 joystick tank, add more features later!
-
-
 class OI
 {
 private:

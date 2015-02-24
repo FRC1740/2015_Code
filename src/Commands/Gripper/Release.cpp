@@ -7,9 +7,8 @@ Release::Release()
 
 void Release::Initialize()
 {
-	datalogger->Log("Release::Initialize(); Calling gripper->Release() subsystem", DEBUG_MESSAGE);
+	datalogger->Log("Release::Initialize()", DEBUG_MESSAGE);
 	gripper->Release();
-	datalogger->Log("Release::Initialize(); Dropped a tote!", DEBUG_MESSAGE);
 }
 
 void Release::Execute()
@@ -24,12 +23,10 @@ bool Release::IsFinished()
 
 void Release::End()
 {
-	datalogger->Log("Release is ending", DEBUG_MESSAGE);
-	return;
+	datalogger->Log("Release::End()", DEBUG_MESSAGE);
 }
 
 void Release::Interrupted()
 {
-	datalogger->Log("Release was interrupted", ERROR_MESSAGE);
-	return;
+	datalogger->Log("Release::Interrupted()", ERROR_MESSAGE);
 }

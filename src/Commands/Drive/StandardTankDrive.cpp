@@ -1,40 +1,36 @@
 #include "StandardTankDrive.h"
 
-
 StandardTankDrive::StandardTankDrive()
 {
 	Requires(drivetrain);
 }
 
-// Called just before this Command runs the first time
 void StandardTankDrive::Initialize()
 {
-//	l->Log("StandardTankDrive::Initialize()", STATUS_MESSAGE);
+	datalogger->Log("StandardTankDrive::Initialize()", STATUS_MESSAGE);
 }
-// Called repeatedly when this Command is scheduled to run
 void StandardTankDrive::Execute()
 {
+	datalogger->Log("StandardTankDrive::Execute()", VERBOSE_MESSAGE);
 	drivetrain->front_left_motor->Set(oi->tankDriveJoystickLeft->GetY());
 	drivetrain->rear_left_motor->Set(oi->tankDriveJoystickLeft->GetY());
 	drivetrain->front_right_motor->Set(oi->tankDriveJoystickRight->GetY());
 	drivetrain->rear_right_motor->Set(oi->tankDriveJoystickRight->GetY());
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool StandardTankDrive::IsFinished()
 {
 	return false;
 }
 
-// Called once after isFinished returns true
 void StandardTankDrive::End()
 {
+	datalogger->Log("StandardTankDrive::End()", ERROR_MESSAGE);
 	drivetrain->Stop();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 void StandardTankDrive::Interrupted()
 {
+	datalogger->Log("StandardTankDrive::Interrupted()", STATUS_MESSAGE);
 	drivetrain->Stop();
 }

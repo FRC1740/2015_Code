@@ -1,5 +1,5 @@
-#ifndef SkateLeftThreeSeconds_H
-#define SkateLeftThreeSeconds_H
+#ifndef SKATELEFTTHREESECONDS_H
+#define SKATELEFTTHREESECONDS_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

@@ -1,5 +1,5 @@
-#ifndef MecanumTankDrive_H
-#define MecanumTankDrive_H
+#ifndef MECANUMTANKDRIVE_H
+#define MECANUMTANKDRIVE_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

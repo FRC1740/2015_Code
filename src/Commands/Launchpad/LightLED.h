@@ -1,5 +1,5 @@
-#ifndef LightLED_H
-#define LightLED_H
+#ifndef LIGHTLED_H
+#define LIGHTLED_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

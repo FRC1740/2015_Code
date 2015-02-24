@@ -1,5 +1,5 @@
-#ifndef Wait_H
-#define Wait_H
+#ifndef WAIT_H
+#define WAIT_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

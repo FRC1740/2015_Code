@@ -1,5 +1,5 @@
-#ifndef BasicAuto_H
-#define BasicAuto_H
+#ifndef BASICAUTO_H
+#define BASICAUTO_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

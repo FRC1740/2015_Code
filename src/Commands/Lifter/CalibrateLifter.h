@@ -1,5 +1,5 @@
-#ifndef CalibrateLifter_H
-#define CalibrateLifter_H
+#ifndef CALIBRATELIFTER_H
+#define CALIBRATELIFTER_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"

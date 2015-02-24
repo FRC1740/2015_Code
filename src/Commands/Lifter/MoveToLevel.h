@@ -1,12 +1,12 @@
-#ifndef MoveToLevel_H
-#define MoveToLevel_H
+#ifndef MOVETOLEVEL_H
+#define MOVETOLEVEL_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
 #include <math.h>
 
-#define MAX_ENCODER_VALUE 1000  // TODO make this properly reflect the top level
+#define MAX_ENCODER_VALUE 1000
 
 class MoveToLevel: public CommandBase
 {

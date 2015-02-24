@@ -1,5 +1,5 @@
-#ifndef Lifter_H
-#define Lifter_H
+#ifndef LIFTER_H
+#define LIFTER_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
@@ -16,18 +16,12 @@
 #define MIN_SPEED			0.5
 #define BRAKE_SPEED			0.1
 
-
 class Lifter: public Subsystem
 {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 public:
 	Lifter();
-
 	Encoder* lifterEncoder;
 	CANTalon* lifterMotor;
-
 	void InitDefaultCommand();
 	void Brake();
 };
