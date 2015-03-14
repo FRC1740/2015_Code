@@ -1,5 +1,6 @@
 #include <Commands/Autos/BasicAuto.h>
 #include "Commands/Autos/PickUpAndSkateAuto.h"
+#include "Commands/Autos/PickUpAndPushAuto.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/Drive/StandardTankDrive.h"
@@ -48,8 +49,9 @@ private:
 
 //		->Log("added objects", VERBOSE_MESSAGE);
 		autonomouschooser = new SendableChooser();
-		autonomouschooser->AddDefault("Basic Auto: Drive Forward", new BasicAuto());
+		autonomouschooser->AddObject("Basic Auto: Drive Forward", new BasicAuto());
 		autonomouschooser->AddObject("Fancy Auto: Grab and Skate with Box", new PickUpAndSkateAuto());
+		autonomouschooser->AddDefault("Fancy Auto 2: Lift Trash Can, Push Box", new PickUpAndPushAuto());
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
@@ -79,7 +81,7 @@ private:
 	virtual void TeleopInit()
 	{
 //		->Log("Entering TeleopInit()", STATUS_MESSAGE);
-		autonomousCommand->Cancel();
+//		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();
 //		->End();

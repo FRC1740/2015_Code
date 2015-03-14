@@ -51,8 +51,8 @@ OI::OI()
 	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
     threeAxis_7->WhenPressed(new CalibrateLifter());
-    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_1));
-    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_2));
+    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_ONE));
+    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_TWO));
 
 
     /*
@@ -99,11 +99,11 @@ OI::OI()
     NES_9->WhileHeld(new Raise());
     NES_10->WhileHeld(new Lower());
 
-    JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
+//    JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands
 
     //light led with launchpad
-    launchPad_1->WhileHeld(new LightLED());
+//    launchPad_1->WhileHeld(new LightLED());
 
 
 }
