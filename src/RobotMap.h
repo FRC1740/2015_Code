@@ -22,8 +22,6 @@
 #define UPPER_LIMIT_PORT		0
 #define LOWER_LIMIT_PORT		1
 
-#define LEVEL_1					375
-#define LEVEL_2					750
 #define FWD  1 // these are directions relative to the robot
 #define REV -1
 

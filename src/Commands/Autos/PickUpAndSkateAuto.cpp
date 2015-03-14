@@ -9,6 +9,7 @@
 
 PickUpAndSkateAuto::PickUpAndSkateAuto()
 {
+	AddSequential(new Release());
 	AddSequential(new CalibrateLifter());
 	AddSequential(new DoNothing(.25));
 	AddSequential(new Grab());
