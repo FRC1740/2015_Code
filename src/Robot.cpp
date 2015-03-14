@@ -79,7 +79,7 @@ private:
 	virtual void TeleopInit()
 	{
 //		->Log("Entering TeleopInit()", STATUS_MESSAGE);
-		autonomousCommand->Cancel();
+//		autonomousCommand->Cancel();
 		teleopcommand = (Command *) drivemodechooser->GetSelected();
 		teleopcommand->Start();
 //		->End();
