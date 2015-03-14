@@ -9,7 +9,7 @@ void SkateLeftThreeSeconds::Initialize()
 {
 	SetTimeout(2.75);
 	datalogger->Log("Skating for 3 seconds", VERBOSE_MESSAGE);
-	drivetrain->Go(-1, 1, 1, -1);
+	drivetrain->Go(1, -1, -1, 1);
 }
 
 void SkateLeftThreeSeconds::Execute()

@@ -10,13 +10,13 @@ BasicAuto::BasicAuto()
 void BasicAuto::Initialize()
 {
 	datalogger->Log("starting basic auto", STATUS_MESSAGE);
-	SetTimeout(3);
+	SetTimeout(5);
 }
 
 void BasicAuto::Execute()
 {
 	datalogger->Log("Basic Auto Driving", VERBOSE_MESSAGE);
-	drivetrain->Go(1, 1,  1, 1);
+	drivetrain->Go(-.5, -.5, -.5, -.5);
 }
 
 bool BasicAuto::IsFinished()

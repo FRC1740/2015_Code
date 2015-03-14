@@ -1,15 +1,14 @@
-#ifndef MECANUMTANKDRIVE_H
-#define MECANUMTANKDRIVE_H
+#ifndef Go_H
+#define Go_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-#define DEADBAND .1
-
-class MecanumTankDrive: public CommandBase
+class Go: public CommandBase
 {
 public:
-	MecanumTankDrive();
+	Go(int, float, float, float, float);
+	float front_right, rear_right, front_left, rear_left;
 	void Initialize();
 	void Execute();
 	bool IsFinished();
