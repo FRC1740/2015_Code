@@ -8,7 +8,7 @@
 #include "../Other/DoNothing.h"
 
 
-PickUpAndPushAuto::PickUpAndPushAuto()
+PickUpAndPushAuto::PickUpAndPushAuto(int runTime)
 {
 	AddSequential(new Release());
 	AddSequential(new CalibrateLifter());
@@ -22,7 +22,7 @@ PickUpAndPushAuto::PickUpAndPushAuto()
 	AddSequential(new DoNothing(.25));
 	AddSequential(new Go(.5, -.5, 0, -.5, 0));
 	AddSequential(new DoNothing(.25));
-	AddSequential(new Go(4.85, -.55, -.5, -.55, -.5));
+	AddSequential(new Go(runTime, -.55, -.5, -.55, -.5));
 
 
 }
