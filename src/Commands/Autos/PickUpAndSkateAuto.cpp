@@ -5,7 +5,8 @@
 #include "../../CommandBase.h"
 #include "../Gripper/Release.h"
 #include "../Other/DoNothing.h"
-#include "SkateLeftThreeSeconds.h"
+#include "../../RobotMap.h"
+#include "Skate.h"
 
 PickUpAndSkateAuto::PickUpAndSkateAuto()
 {
@@ -16,7 +17,7 @@ PickUpAndSkateAuto::PickUpAndSkateAuto()
 	AddSequential(new DoNothing(.25));
 	AddSequential(new MoveToLevel(75));
 	AddSequential(new DoNothing(.25));
-	AddSequential(new SkateLeftThreeSeconds());
+	AddSequential(new Skate(LEFT, 3));
 	AddSequential(new DoNothing(.25));
 	AddSequential(new MoveToLevel(0));
 	AddSequential(new DoNothing(.25));
