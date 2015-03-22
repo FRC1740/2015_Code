@@ -6,7 +6,7 @@
 #include "../Gripper/Release.h"
 #include "../Other/DoNothing.h"
 #include "../../RobotMap.h"
-#include "Skate.h"
+#include "../Drive/Skate.h"
 
 PickUpAndSkateAuto::PickUpAndSkateAuto()
 {
