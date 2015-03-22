@@ -16,7 +16,7 @@ void BasicAuto::Initialize()
 void BasicAuto::Execute()
 {
 	datalogger->Log("Basic Auto Driving", VERBOSE_MESSAGE);
-	drivetrain->Go(-.5, -.5, -.5, -.5);
+	drivetrain->Go(.5, .5, .5, .5);
 }
 
 bool BasicAuto::IsFinished()

@@ -11,7 +11,7 @@ void Skate::Initialize()
 {
 	SetTimeout(selftime);
 	datalogger->Log("Skating!", VERBOSE_MESSAGE);
-	drivetrain->Go(selfdirection * 1, selfdirection * -1, selfdirection*-1, selfdirection*1);
+	drivetrain->Go(selfdirection * -1, selfdirection * 1, selfdirection * 1, selfdirection * -1);
 }
 
 void Skate::Execute()

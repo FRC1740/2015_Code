@@ -18,7 +18,7 @@ PickUpAndPushAuto::PickUpAndPushAuto(int runTime)
 	AddSequential(new Grab());
 	AddSequential(new DoNothing(.25));
 	AddSequential(new MoveToLevel(650));
-	AddSequential(new Go(1.75, .5, -.5, -.5, .5));
+	AddSequential(new Go(1.75, -.5, .5, .5, -.5));
 	AddSequential(new DoNothing(.25));
 	AddSequential(new Go(.5, -.5, 0, -.5, 0));
 	AddSequential(new DoNothing(.25));
