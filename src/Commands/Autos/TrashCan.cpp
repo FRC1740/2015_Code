@@ -18,5 +18,7 @@ TrashCan::TrashCan()
 	AddSequential(new DoNothing(.25));
 	AddSequential(new MoveToLevel(650));
 	AddSequential(new DoNothing(.25));
+	AddSequential(new Go(.5, -.5, .5, .5, -.5));
+	AddSequential(new DoNothing(.25));
 	AddSequential(new Go(4.85, -.55, -.5, -.55, -.5));
 }

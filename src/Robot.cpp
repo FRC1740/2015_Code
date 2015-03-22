@@ -53,10 +53,10 @@ private:
 		autonomouschooser = new SendableChooser();
 		autonomouschooser->AddObject("Basic Auto: Drive Forward", new BasicAuto());
 		autonomouschooser->AddObject("Fancy Auto: Grab and Skate with Box", new PickUpAndSkateAuto());
-		autonomouschooser->AddDefault("Fancy Auto 2: Lift Trash Can, Push Box OVER BUMP", new PickUpAndPushAuto(5));
+		autonomouschooser->AddObject("Fancy Auto 2: Lift Trash Can, Push Box OVER BUMP", new PickUpAndPushAuto(5));
 		autonomouschooser->AddObject("Fancy Auto 2: Pickup and Push, NO BUMP", new PickUpAndPushAuto(4.85));
 		autonomouschooser->AddObject("Pickup just the trashcan and drive", new TrashCan());
-		autonomouschooser->AddObject("Do Nothing", new DoNothing(15));
+		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
