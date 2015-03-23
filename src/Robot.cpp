@@ -1,6 +1,8 @@
 #include <Commands/Autos/BasicAuto.h>
 #include "Commands/Autos/PickUpAndSkateAuto.h"
 #include "Commands/Autos/PickUpAndPushAuto.h"
+#include "Commands/Autos/TrashCan.h"
+#include "Commands/Other/DoNothing.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/Drive/StandardTankDrive.h"
@@ -51,14 +53,17 @@ private:
 		autonomouschooser = new SendableChooser();
 		autonomouschooser->AddObject("Basic Auto: Drive Forward", new BasicAuto());
 		autonomouschooser->AddObject("Fancy Auto: Grab and Skate with Box", new PickUpAndSkateAuto());
-		autonomouschooser->AddDefault("Fancy Auto 2: Lift Trash Can, Push Box", new PickUpAndPushAuto());
+		autonomouschooser->AddObject("Fancy Auto 2: Lift Trash Can, Push Box OVER BUMP", new PickUpAndPushAuto(5));
+		autonomouschooser->AddObject("Fancy Auto 2: Pickup and Push, NO BUMP", new PickUpAndPushAuto(4.85));
+		autonomouschooser->AddObject("Pickup just the trashcan and drive", new TrashCan());
+		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
 //		->Log("Starting robot!", VERBOSE_MESSAGE);
 //		->Flush();
-		CameraServer::GetInstance()->SetQuality(100);
-		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+//		CameraServer::GetInstance()->SetQuality(100);
+//		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
 		compressor = new Compressor();
 

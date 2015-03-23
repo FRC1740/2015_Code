@@ -1,13 +1,15 @@
-#ifndef SKATELEFTTHREESECONDS_H
-#define SKATELEFTTHREESECONDS_H
+#ifndef SKATE_H
+#define SKATE_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class SkateLeftThreeSeconds: public CommandBase
+class Skate: public CommandBase
 {
 public:
-	SkateLeftThreeSeconds();
+	Skate(int, int);
+	int selfdirection;
+	int selftime;
 	void Initialize();
 	void Execute();
 	bool IsFinished();
