@@ -1,7 +1,7 @@
 #ifndef XBOXDRIVE_H
 #define XBOXDRIVE_H
 
-#include "../../CommandBase.h"
+#include "../../../CommandBase.h"
 #include "WPILib.h"
 
 class XBoxDrive: public CommandBase

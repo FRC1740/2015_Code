@@ -1,7 +1,7 @@
 #ifndef Go_H
 #define Go_H
 
-#include "../../CommandBase.h"
+#include "../../../CommandBase.h"
 #include "WPILib.h"
 
 class Go: public CommandBase

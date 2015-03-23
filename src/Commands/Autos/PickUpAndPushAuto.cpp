@@ -2,7 +2,7 @@
 #include "../Lifter/CalibrateLifter.h"
 #include "../Lifter/MoveToLevel.h"
 #include "../Gripper/Grab.h"
-#include "../Drive/Go.h"
+#include "../Drive/DriveCommands/Go.h"
 #include "../../CommandBase.h"
 #include "../Gripper/Release.h"
 #include "../Other/DoNothing.h"

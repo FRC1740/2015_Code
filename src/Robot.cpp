@@ -5,10 +5,10 @@
 #include "Commands/Other/DoNothing.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/Drive/StandardTankDrive.h"
-#include "Commands/Drive/MecanumTankDrive.h"
-#include "Commands/Drive/ThreeAxisDrive.h"
-#include "Commands/Drive/XBoxDrive.h"
+#include "Commands/Drive/DriveModes/StandardTankDrive.h"
+#include "Commands/Drive/DriveModes/MecanumTankDrive.h"
+#include "Commands/Drive/DriveModes/ThreeAxisDrive.h"
+#include "Commands/Drive/DriveModes/XBoxDrive.h"
 #include "CommandBase.h"
 
 

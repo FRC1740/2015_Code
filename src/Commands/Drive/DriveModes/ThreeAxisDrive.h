@@ -2,7 +2,7 @@
 #define THREEAXISDRIVE_H
 
 #include "math.h"
-#include "../../CommandBase.h"
+#include "../../../CommandBase.h"
 #include "WPILib.h"
 
 #define SCALE_TWIST 0.4

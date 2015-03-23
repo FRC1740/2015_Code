@@ -1,7 +1,7 @@
 #ifndef MECANUMTANKDRIVE_H
 #define MECANUMTANKDRIVE_H
 
-#include "../../CommandBase.h"
+#include "../../../CommandBase.h"
 #include "WPILib.h"
 
 #define DEADBAND .1

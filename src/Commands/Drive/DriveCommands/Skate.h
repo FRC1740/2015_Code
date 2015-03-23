@@ -1,7 +1,7 @@
 #ifndef SKATE_H
 #define SKATE_H
 
-#include "../../CommandBase.h"
+#include "../../../CommandBase.h"
 #include "WPILib.h"
 
 class Skate: public CommandBase
