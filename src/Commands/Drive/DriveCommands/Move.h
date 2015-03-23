@@ -1,15 +1,15 @@
-#ifndef SKATE_H
-#define SKATE_H
+#ifndef Move_H
+#define Move_H
 
 #include "../../../CommandBase.h"
 #include "WPILib.h"
-
-class Skate: public CommandBase
+#include "../../../RobotMap.h"
+class Move: public CommandBase
 {
 public:
-	Skate(int, int);
-	int selfdirection;
-	int selftime;
+	Move(int, float, int);
+	int angle;
+	float speed;
 	void Initialize();
 	void Execute();
 	bool IsFinished();

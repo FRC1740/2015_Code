@@ -14,6 +14,9 @@
 #define rear_left_motor_port 	2
 #define rear_right_motor_port 	3
 
+#define ANGLE_CORRECTION 5; // offsets straight by x degrees counter clockwise
+// TODO VECTORIZE JOYSTICK INPUTS
+
 // #define LIFTER_MOTOR_PORT		4 // Use if LifterMotor is controlled by a Victor
 #define LIFTER_MOTOR_CAN_CHANNEL 0  //
 #define LIFTER_ENCODER_PORT_0	5
