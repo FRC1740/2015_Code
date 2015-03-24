@@ -5,6 +5,7 @@
 #include "Commands/Other/DoNothing.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
+#include "Commands/Drive/DriveCommands/Move.h"
 #include "Commands/Drive/DriveModes/StandardTankDrive.h"
 #include "Commands/Drive/DriveModes/MecanumTankDrive.h"
 #include "Commands/Drive/DriveModes/ThreeAxisDrive.h"
@@ -56,6 +57,7 @@ private:
 		autonomouschooser->AddObject("Fancy Auto 2: Lift Trash Can, Push Box OVER BUMP", new PickUpAndPushAuto(5));
 		autonomouschooser->AddObject("Fancy Auto 2: Pickup and Push, NO BUMP", new PickUpAndPushAuto(4.85));
 		autonomouschooser->AddObject("Pickup just the trashcan and drive", new TrashCan());
+		autonomouschooser->AddObject("Testing move", new Move(270, .3, 5));
 		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 

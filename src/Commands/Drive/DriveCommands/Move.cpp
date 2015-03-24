@@ -17,18 +17,18 @@ void Move::Initialize()
 	float left, right;
 	if (angle <= 90){
 		left = 1;
-		right = (((90 - angle) / 90) * -2) + 1; // do some range shifting to make it a float between -1 and 1
+		right = (((90.0 - angle) / 90.0) * 2) - 1; // do some range shifting to make it a float between -1 and 1
 	}
 	else if (90 < angle and angle < 180){
-		left = (((180 - angle) / 90) * 2) - 1;
+		left = (((180.0 - angle) / 90.0) * 2) - 1;
 		right = -1;
 	}
 	else if (180 <= angle and angle <= 270){
 		left = -1;
-		right = (((270 - angle) / 90) * 2) - 1;
+		right = (((270.0 - angle) / 90.0) * -2) + 1;
 	}
 	else if (angle < 360){
-		left = (((360 - angle) / 90) * -2) + 1;
+		left = (((360.0 - angle) / 90.0) * -2) + 1;
 		right = 1;
 	}
 	drivetrain->Go(left * speed, right * speed, right * speed, left * speed);
@@ -46,10 +46,10 @@ bool Move::IsFinished()
 
 void Move::End()
 {
-	return;
+	drivetrain->Stop();
 }
 
 void Move::Interrupted()
 {
-	return;
+	drivetrain->Stop();
 }
