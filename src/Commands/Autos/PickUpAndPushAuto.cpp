@@ -2,7 +2,7 @@
 #include "../Lifter/CalibrateLifter.h"
 #include "../Lifter/MoveToLevel.h"
 #include "../Gripper/Grab.h"
-#include "../Drive/Go.h"
+#include "../Drive/DriveCommands/Move.h"
 #include "../../CommandBase.h"
 #include "../Gripper/Release.h"
 #include "../Other/DoNothing.h"
@@ -18,11 +18,9 @@ PickUpAndPushAuto::PickUpAndPushAuto(int runTime)
 	AddSequential(new Grab());
 	AddSequential(new DoNothing(.25));
 	AddSequential(new MoveToLevel(650));
-	AddSequential(new Go(1.75, .5, -.5, -.5, .5));
+	AddSequential(new Move(270, 1, 1.75));
 	AddSequential(new DoNothing(.25));
-	AddSequential(new Go(.5, -.5, 0, -.5, 0));
-	AddSequential(new DoNothing(.25));
-	AddSequential(new Go(runTime, -.55, -.5, -.55, -.5));
+	AddSequential(new Move(0, .5, runTime));
 
 
 }

@@ -1,14 +1,16 @@
-#ifndef XBOXDRIVE_H
-#define XBOXDRIVE_H
+#ifndef AdjustLifter_H
+#define AdjustLifter_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class XBoxDrive: public CommandBase
+class AdjustLifter: public CommandBase
 {
-private:
 public:
-	XBoxDrive();
+	AdjustLifter(int);
+	int adjustment;
+	int start;
+	int direction;
 	void Initialize();
 	void Execute();
 	bool IsFinished();

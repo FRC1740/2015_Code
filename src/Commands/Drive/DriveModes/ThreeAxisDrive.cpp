@@ -30,10 +30,10 @@ void ThreeAxisDrive::Execute()
 	{
 		t = SCALE_TWIST  * oi->threeAxisJoystick->GetTwist();
 	}
-	fl = y - t - x; // Front Left Wheel
-	fr = y + t + x; // Front Right Wheel
-	rl = y - t + x; // Rear Left Wheel
-	rr = y + t - x; // Rear Right Wheel
+	fl = - y + t + x; // Front Left Wheel
+	fr = - y - t - x; // Front Right Wheel
+	rl = - y + t - x; // Rear Left Wheel
+	rr = - y - t + x; // Rear Right Wheel
 
 #if (DEBUG_LEVEL == 4) // CRE Not sure if this is legit
 
