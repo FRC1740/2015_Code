@@ -1,18 +1,14 @@
-#ifndef BASICAUTO_H
-#define BASICAUTO_H
+#ifndef BasicAuto_H
+#define BasicAuto_H
 
-#include "../../CommandBase.h"
+#include "Commands/CommandGroup.h"
+#include "../Drive/DriveCommands/Move.h"
 #include "WPILib.h"
 
-class BasicAuto: public CommandBase
+class BasicAuto: public CommandGroup
 {
 public:
 	BasicAuto();
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
 };
 
 #endif
