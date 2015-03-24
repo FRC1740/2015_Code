@@ -14,8 +14,7 @@ private:
 	AnalogInput *rangefinder;
 	Relay *light;
 public:
-	RangeFinder(DataLogger *);
-	DataLogger *l;
+	RangeFinder();
 	void InitDefaultCommand();
 	float GetVoltage();
 	float GetRangeIn();
