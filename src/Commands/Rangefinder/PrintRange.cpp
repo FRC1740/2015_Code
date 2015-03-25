@@ -16,7 +16,7 @@ void PrintRange::Execute()
 //	printf("Voltage: %f V", rangefinder->GetVoltage());
 //	printf("Range: %f in", rangefinder->GetRangeIn());
 //	printf("Range: %f ft", rangefinder->GetRangeFt());
-	if (rangefinder->GetRangeFt() < 1){
+	if (rangefinder->GetRangeIn() < 8.5){
 		rangefinder->Light(1);
 	}
 	else {
