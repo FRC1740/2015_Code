@@ -7,7 +7,8 @@
 RangeFinder::RangeFinder() :
 	Subsystem("RangeFinder")
 {
-	rangefinder = new AnalogInput(RANGEFINDER_CHANNEL);
+	rangefinder = new Ultrasonic(2,1);
+	rangefinder->SetAutomaticMode(true);
 	light = new Relay(LIGHT_BAR_RELAY_PORT);
 }
 
@@ -16,20 +17,20 @@ void RangeFinder::InitDefaultCommand()
 	SetDefaultCommand(new PrintRange());
 }
 
-float RangeFinder::GetVoltage()
-{
-	rangefinder->SetAverageBits(4);
-	return rangefinder->GetAverageVoltage();
-}
+//float RangeFinder::GetVoltage()
+//{
+//	rangefinder->SetAverageBits(4);
+//	return rangefinder->GetAverageVoltage();
+//}
 
 float RangeFinder::GetRangeIn()
 {
-	return GetVoltage() * IN_FACTOR;
+	return rangefinder->GetRangeInches();
 }
 
 float RangeFinder::GetRangeFt()
 {
-	return GetVoltage() * FT_FACTOR;
+	return rangefinder->GetRangeInches() / 12;
 }
 
 void RangeFinder::Light(unsigned int state)
