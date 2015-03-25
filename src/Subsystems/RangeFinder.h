@@ -11,12 +11,12 @@
 class RangeFinder: public Subsystem
 {
 private:
-	AnalogInput *rangefinder;
+	Ultrasonic *rangefinder;
 	Relay *light;
 public:
 	RangeFinder();
 	void InitDefaultCommand();
-	float GetVoltage();
+//	float GetVoltage();
 	float GetRangeIn();
 	float GetRangeFt();
 	void Light(unsigned int);
