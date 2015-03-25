@@ -98,7 +98,7 @@ OI::OI()
     // Lifter
     NES_9->WhileHeld(new Raise());
     NES_10->WhileHeld(new Lower());
-
+// TODO Map button to auto stack
 //    JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands
 
