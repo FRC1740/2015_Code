@@ -13,6 +13,7 @@ private:
 	Solenoid *s1;
 public:
 	Gripper();
+	bool isOpen;
 	void Grab();
 	void Release();
 };

@@ -35,7 +35,7 @@
 #define LEVEL_ONE 0 // // We reset encoder to 0 at bottom limit switch
 #define LEVEL_TWO 375 // SWAG
 #define LEVEL_THREE 750 // SWAG
-#define TRASH_LEVEL 450
+#define TRASH_LEVEL 220
 #define CLEAR_LEVEL 50 // number encoder ticks higher we have to be to slide a box under
 
 #endif

@@ -14,11 +14,15 @@ TrashCan::TrashCan()
 	AddSequential(new Release());
 	AddSequential(new DoNothing(.5));
 	AddSequential(new Grab());
-	AddSequential(new DoNothing(.5));
-	AddSequential(new AdjustLifter(100));
-	AddSequential(new DoNothing(.5));
+	AddSequential(new DoNothing(1));
+	AddSequential(new AdjustLifter(200));
+	AddSequential(new DoNothing(1));
 	AddSequential(new Move(180, .5, 3.9));
+	AddSequential(new DoNothing(1));
 	AddSequential(new Release());
+	AddSequential(new DoNothing(1));
 	AddSequential(new CalibrateLifter());
 	AddSequential(new MoveToLevel(TRASH_LEVEL));
+	AddSequential(new DoNothing(1));
+	AddSequential(new Grab());
 }
