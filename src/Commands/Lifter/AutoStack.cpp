@@ -28,9 +28,13 @@ void AutoStack::Execute()
 		Wait(1); // This wait is to allow the box to settle
 		if (rangefinder->rangefinder_top->GetRangeInches() < 5) { // check again incase something went terribly wrong
 			MoveToLevel(LEVEL_THREE);
+			Wait(.25);
 			Release();
+			Wait(.25);
 			MoveToLevel(LEVEL_TWO);
+			Wait(.25);
 			Grab();
+			Wait(.25);
 			MoveToLevel(LEVEL_THREE + CLEAR_LEVEL);
 		}
 	}
