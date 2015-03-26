@@ -5,6 +5,8 @@
 #include "Commands/Lifter/Lower.h"
 #include "Commands/Lifter/CalibrateLifter.h"
 #include "Commands/Lifter/MoveToLevel.h"
+#include "Commands/Lifter/AutoStack.h"
+#include "Commands/Gripper/Toggle.h"
 //#include "Commands/Rangefinder/RangeLight.h"
 #include "Commands/Launchpad/LightLED.h"
 
@@ -92,8 +94,8 @@ OI::OI()
 
     // Grabber
     // threeAxis_8->WhileHeld(new PrintRange());
-    NES_2->WhenPressed(new Grab());
-    NES_3->WhenPressed(new Release());
+    NES_2->WhenPressed(new Toggle());
+    NES_3->WhileHeld(new AutoStack());
 
     // Lifter
     NES_9->WhileHeld(new Raise());
