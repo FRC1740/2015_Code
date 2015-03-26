@@ -1,7 +1,7 @@
 #ifndef AutoStack_H
 #define AutoStack_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class AutoStack: public CommandBase
