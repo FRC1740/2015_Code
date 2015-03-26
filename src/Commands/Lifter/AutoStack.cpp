@@ -7,34 +7,39 @@
 AutoStack::AutoStack()
 {
 	Requires(lifter);
+	Requires(rangefinder);
+	Requires(gripper);
 }
 
 void AutoStack::Initialize()
 {
-	MoveToLevel(LEVEL_THREE);
-	Release();
-	if (rangefinder->rangefinder_top->GetRangeInches() < 5) // TODO tune this value
+	printf("starting auto stack\n");
+	MoveToLevel(LEVEL_TWO);
+	gripper->Release();
+	printf("we are here \n");
+	if (rangefinder->rangefinder_top->GetRangeInches() < 8) // TODO tune this value
 	{
 		MoveToLevel(LEVEL_TWO);
-		Grab();
-		Wait(.25);
+		gripper->Grab();
+		Wait(.5);
 	}
 	MoveToLevel(LEVEL_THREE + CLEAR_LEVEL);
 }
 void AutoStack::Execute()
 {
-	if (rangefinder->rangefinder_top->GetRangeInches() < 5) // TODO tune this value
+	if (rangefinder->rangefinder_top->GetRangeInches() < 8) // TODO tune this value
 	{
 		Wait(1); // This wait is to allow the box to settle
-		if (rangefinder->rangefinder_top->GetRangeInches() < 5) { // check again incase something went terribly wrong
+		if (rangefinder->rangefinder_top->GetRangeInches() < 8) { // check again incase something went terribly wrong
+			printf("making stack larger\n");
 			MoveToLevel(LEVEL_THREE);
-			Wait(.25);
-			Release();
-			Wait(.25);
+			Wait(.5);
+			gripper->Release();
+			Wait(.5);
 			MoveToLevel(LEVEL_TWO);
-			Wait(.25);
-			Grab();
-			Wait(.25);
+			Wait(.5);
+			gripper->Grab();
+			Wait(.5);
 			MoveToLevel(LEVEL_THREE + CLEAR_LEVEL);
 		}
 	}

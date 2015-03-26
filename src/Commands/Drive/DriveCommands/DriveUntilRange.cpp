@@ -12,7 +12,7 @@ void DriveUntilRange::Initialize()
 {
 	if (rangefinder->rangefinder_bottom->GetRangeInches() > range)
 	{
-		direction = -1;
+		//direction = -1;
 	}
 	drivetrain->Go(speed * direction, speed * direction, speed * direction, speed * direction);
 }
@@ -23,7 +23,7 @@ void DriveUntilRange::Execute()
 
 bool DriveUntilRange::IsFinished()
 {
-	return rangefinder->rangefinder_bottom->GetRangeInches() < 5;
+	return rangefinder->rangefinder_bottom->GetRangeInches() < range;
 }
 void DriveUntilRange::End()
 {

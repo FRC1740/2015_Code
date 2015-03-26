@@ -2,7 +2,7 @@
 
 UpdateEncoder::UpdateEncoder()
 {
-	Requires(lifter);
+	//Requires(lifter);
 }
 
 void UpdateEncoder::Initialize()

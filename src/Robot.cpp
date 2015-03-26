@@ -1,6 +1,7 @@
 #include <Commands/Autos/BasicAuto.h>
 #include "Commands/Autos/PickUpAndPushAuto.h"
 #include "Commands/Autos/TrashCan.h"
+#include "Commands/Autos/YellowToteAuto.h"
 #include "Commands/Other/DoNothing.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
@@ -56,6 +57,7 @@ private:
 		autonomouschooser->AddObject("Pickup just the trashcan and drive", new TrashCan());
 		autonomouschooser->AddObject("Testing move", new Move(270, .3, 5));
 		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
+		autonomouschooser->AddDefault("Yellow Totes", new YellowToteAuto());
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
