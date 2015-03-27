@@ -5,6 +5,7 @@
 #include "../Lifter/CalibrateLifter.h"
 #include "../Lifter/MoveToLevel.h"
 #include "../Drive/DriveCommands/DriveUntilRange.h"
+#include "../Drive/DriveCommands/Move.h"
 #include "../../CommandBase.h"
 #include "../Gripper/Release.h"
 #include "../Other/DoNothing.h"
@@ -18,6 +19,7 @@ TrashCan::TrashCan()
 	AddSequential(new AdjustLifter(500));
 	AddSequential(new DoNothing(1));
 	AddSequential(new DriveUntilRange(200, .5, 5));
+	//AddSequential(new Move(180, 4));
 	AddSequential(new DoNothing(1));
 	AddSequential(new Release());
 	AddSequential(new DoNothing(1));
