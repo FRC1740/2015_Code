@@ -17,7 +17,7 @@ TrashCan::TrashCan()
 	AddSequential(new DoNothing(1));
 	AddSequential(new AdjustLifter(500));
 	AddSequential(new DoNothing(1));
-	AddSequential(new DriveUntilRange(90, .5, 5));
+	AddSequential(new DriveUntilRange(200, .5, 5));
 	AddSequential(new DoNothing(1));
 	AddSequential(new Release());
 	AddSequential(new DoNothing(1));
