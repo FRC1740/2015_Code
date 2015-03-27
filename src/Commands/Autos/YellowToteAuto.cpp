@@ -17,7 +17,7 @@ YellowToteAuto::YellowToteAuto()
 
 	AddSequential(new MoveToLevel(LEVEL_TWO + CLEAR_LEVEL));
 	AddSequential(new DoNothing(1));
-	AddSequential(new DriveUntilRange(20, .5)); // TODO tune this
+	AddSequential(new DriveUntilRange(20, .5, 30)); // TODO tune this
 	AddSequential(new DoNothing(1));
 	AddSequential(new MoveToLevel(LEVEL_TWO));
 	AddSequential(new DoNothing(1));
@@ -31,7 +31,7 @@ YellowToteAuto::YellowToteAuto()
 
 	AddSequential(new MoveToLevel(LEVEL_TWO + CLEAR_LEVEL));
 	AddSequential(new DoNothing(1));
-	AddSequential(new DriveUntilRange(20, .5)); // TODO tune this
+	AddSequential(new DriveUntilRange(20, .5, 30)); // TODO tune this
 	AddSequential(new DoNothing(1));
 	AddSequential(new MoveToLevel(LEVEL_TWO));
 	AddSequential(new DoNothing(1));

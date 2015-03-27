@@ -7,7 +7,7 @@
 class DriveUntilRange: public CommandBase
 {
 public:
-	DriveUntilRange(int, float);
+	DriveUntilRange(int, float, int);
 	int range;
 	float speed;
 	int direction;

@@ -1,9 +1,10 @@
 #include "DriveUntilRange.h"
 
-DriveUntilRange::DriveUntilRange(int inches, float s)
+DriveUntilRange::DriveUntilRange(int inches, float s, int timeout)
 {
 	Requires(drivetrain);
 	Requires(rangefinder);
+	SetTimeout(timeout);
 	speed = s;
 	range = inches;
 	direction = 1;
@@ -24,6 +25,9 @@ void DriveUntilRange::Execute()
 
 bool DriveUntilRange::IsFinished()
 {
+	if (IsTimedOut()){
+		return true;
+	}
 	return rangefinder->rangefinder_bottom->GetRangeInches() < range;
 }
 void DriveUntilRange::End()
