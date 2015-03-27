@@ -3,6 +3,7 @@
 DriveUntilRange::DriveUntilRange(int inches, float s)
 {
 	Requires(drivetrain);
+	Requires(rangefinder);
 	speed = s;
 	range = inches;
 	direction = 1;
@@ -10,9 +11,9 @@ DriveUntilRange::DriveUntilRange(int inches, float s)
 
 void DriveUntilRange::Initialize()
 {
-	if (rangefinder->rangefinder_bottom->GetRangeInches() > range)
+	if (rangefinder->rangefinder_bottom->GetRangeInches() < range)
 	{
-		//direction = -1;
+		direction = -1;
 	}
 	drivetrain->Go(speed * direction, speed * direction, speed * direction, speed * direction);
 }
@@ -27,6 +28,8 @@ bool DriveUntilRange::IsFinished()
 }
 void DriveUntilRange::End()
 {
+	drivetrain->Go(-.05 * direction, -.05 * direction, -.05 * direction, -.05 * direction);
+	Wait(.1);
 	drivetrain->Stop();
 }
 
