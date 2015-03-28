@@ -1,15 +1,15 @@
-#ifndef PRINTRANGE_H
-#define PRINTRANGE_H
+#ifndef RANGELIGHT_H
+#define RANGELIGHT_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class PrintRange: public CommandBase
+class RangeLight: public CommandBase
 {
 private:
 
 public:
-	PrintRange();
+	RangeLight();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

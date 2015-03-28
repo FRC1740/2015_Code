@@ -1,7 +1,7 @@
 #include <Commands/Autos/BasicAuto.h>
-#include "Commands/Autos/PickUpAndSkateAuto.h"
 #include "Commands/Autos/PickUpAndPushAuto.h"
 #include "Commands/Autos/TrashCan.h"
+#include "Commands/Autos/YellowToteAuto.h"
 #include "Commands/Other/DoNothing.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
@@ -53,12 +53,11 @@ private:
 //		->Log("added objects", VERBOSE_MESSAGE);
 		autonomouschooser = new SendableChooser();
 		autonomouschooser->AddObject("Basic Auto: Drive Forward", new BasicAuto());
-		autonomouschooser->AddObject("Fancy Auto: Grab and Skate with Box", new PickUpAndSkateAuto());
-		autonomouschooser->AddObject("Fancy Auto 2: Lift Trash Can, Push Box OVER BUMP", new PickUpAndPushAuto(5));
-		autonomouschooser->AddObject("Fancy Auto 2: Pickup and Push, NO BUMP", new PickUpAndPushAuto(4.85));
+		autonomouschooser->AddObject("Lift TrashCan, Skate and Push Box", new PickUpAndPushAuto());
 		autonomouschooser->AddObject("Pickup just the trashcan and drive", new TrashCan());
 		autonomouschooser->AddObject("Testing move", new Move(270, .3, 5));
 		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
+		autonomouschooser->AddObject("Yellow Totes", new YellowToteAuto());
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();

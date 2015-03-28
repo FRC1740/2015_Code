@@ -5,7 +5,8 @@
 #include "Commands/Lifter/Lower.h"
 #include "Commands/Lifter/CalibrateLifter.h"
 #include "Commands/Lifter/MoveToLevel.h"
-#include "Commands/Rangefinder/PrintRange.h"
+#include "Commands/Gripper/Toggle.h"
+//#include "Commands/Rangefinder/RangeLight.h"
 #include "Commands/Launchpad/LightLED.h"
 
 OI::OI()
@@ -92,13 +93,13 @@ OI::OI()
 
     // Grabber
     // threeAxis_8->WhileHeld(new PrintRange());
-    NES_2->WhenPressed(new Grab());
-    NES_3->WhenPressed(new Release());
+    NES_2->WhenPressed(new Toggle());
+    NES_3->WhenPressed(new Toggle());
 
     // Lifter
     NES_9->WhileHeld(new Raise());
     NES_10->WhileHeld(new Lower());
-
+// TODO Map button to auto stack
 //    JoystickButton *launchPad_1 = new JoystickButton(launchPad, 1); // button 1 on the launchpad
     // Connect the buttons to commands
 

@@ -7,7 +7,7 @@
 class PickUpAndPushAuto: public CommandGroup
 {
 public:
-	PickUpAndPushAuto(int);
+	PickUpAndPushAuto();
 };
 
 #endif

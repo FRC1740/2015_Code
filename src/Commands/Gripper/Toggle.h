@@ -1,14 +1,13 @@
-#ifndef WAIT_H
-#define WAIT_H
+#ifndef Toggle_H
+#define Toggle_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class DoNothing: public CommandBase
+class Toggle: public CommandBase
 {
 public:
-	DoNothing(double);
-	double timer;
+	Toggle();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
