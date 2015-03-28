@@ -94,7 +94,7 @@ OI::OI()
     // Grabber
     // threeAxis_8->WhileHeld(new PrintRange());
     NES_2->WhenPressed(new Toggle());
-    NES_3->WhileHeld(new Toggle());
+    NES_3->WhenPressed(new Toggle());
 
     // Lifter
     NES_9->WhileHeld(new Raise());

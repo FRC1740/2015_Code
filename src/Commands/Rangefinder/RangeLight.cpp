@@ -14,7 +14,7 @@ void RangeLight::Initialize()
 void RangeLight::Execute()
 {
 
-	if (rangefinder->rangefinder_bottom->GetRangeInches() < 8.5){
+	if (rangefinder->rangefinder_bottom->GetRangeInches() < 11){
 		rangefinder->Light(1);
 	}
 	else {

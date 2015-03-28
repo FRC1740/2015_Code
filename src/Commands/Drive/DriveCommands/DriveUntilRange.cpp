@@ -28,7 +28,10 @@ bool DriveUntilRange::IsFinished()
 	if (IsTimedOut()){
 		return true;
 	}
-	return rangefinder->rangefinder_bottom->GetRangeInches() < range;
+	if (direction > 0){
+		return rangefinder->rangefinder_bottom->GetRangeInches() < range;
+	}
+	return rangefinder->rangefinder_bottom->GetRangeInches() > range;
 }
 void DriveUntilRange::End()
 {
