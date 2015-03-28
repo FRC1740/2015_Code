@@ -15,16 +15,16 @@ TrashCan::TrashCan()
 	AddSequential(new Release());
 	AddSequential(new DoNothing(.5));
 	AddSequential(new Grab());
-	AddSequential(new DoNothing(1));
+	AddSequential(new DoNothing(.5));
 	AddSequential(new AdjustLifter(500));
-	AddSequential(new DoNothing(1));
+	AddSequential(new DoNothing(.5));
 	AddSequential(new DriveUntilRange(190, .5, 5));
 	//AddSequential(new Move(180, 4));
-	AddSequential(new DoNothing(1));
+	AddSequential(new DoNothing(.5));
 	AddSequential(new Release());
-	AddSequential(new DoNothing(1));
+	AddSequential(new DoNothing(.5));
 	AddSequential(new CalibrateLifter());
 	AddSequential(new MoveToLevel(TRASH_LEVEL));
-	AddSequential(new DoNothing(1));
+	AddSequential(new DoNothing(.5));
 	AddSequential(new Grab());
 }

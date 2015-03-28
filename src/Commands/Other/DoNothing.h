@@ -7,8 +7,8 @@
 class DoNothing: public CommandBase
 {
 public:
-	DoNothing(int);
-	int timer;
+	DoNothing(double);
+	double timer;
 	void Initialize();
 	void Execute();
 	bool IsFinished();

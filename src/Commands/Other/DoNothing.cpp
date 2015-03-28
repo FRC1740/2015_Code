@@ -1,6 +1,6 @@
 #include <Commands/Other/DoNothing.h>
 
-DoNothing::DoNothing(int input)
+DoNothing::DoNothing(double input)
 {
 	timer = input;
 }
