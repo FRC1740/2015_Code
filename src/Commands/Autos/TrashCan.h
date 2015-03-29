@@ -7,7 +7,7 @@
 class TrashCan: public CommandGroup
 {
 public:
-	TrashCan();
+	TrashCan(double);
 };
 
 #endif

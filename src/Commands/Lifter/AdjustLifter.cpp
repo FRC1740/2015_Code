@@ -27,6 +27,9 @@ void AdjustLifter::Execute()
 }
 bool AdjustLifter::IsFinished()
 {
+	if (lifter->lifterMotor->IsRevLimitSwitchClosed()){
+		return true;
+	}
 	if (direction == UP){
 		return (lifter->lifterEncoder->Get() - start) > adjustment;
 	}

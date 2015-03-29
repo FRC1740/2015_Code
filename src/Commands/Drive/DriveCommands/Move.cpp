@@ -1,6 +1,6 @@
 #include "Move.h"
 
-Move::Move(int a, float s, int time)
+Move::Move(int a, float s, double time)
 {
 	Requires(drivetrain);
 	speed = s;
