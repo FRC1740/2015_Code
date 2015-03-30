@@ -2,7 +2,7 @@
 #include "../RobotMap.h"
 #include "../Commands/RangeFinder/RangeLight.h" // YOU MUST INCLUDE IT to set it as the default command
 
-#define LIGHT_BAR_RELAY_PORT 1 // Compiler blows chunks if using relay port 1
+#define LIGHT_BAR_RELAY_PORT 1 // Compiler blows chunks if using relay port 0
 
 RangeFinder::RangeFinder() :
 	Subsystem("RangeFinder")
