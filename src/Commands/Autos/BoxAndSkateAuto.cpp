@@ -10,5 +10,5 @@ BoxAndSkateAuto::BoxAndSkateAuto()
 	AddSequential(new DoNothing(.5));
 	AddSequential(new AdjustLifter(100));
 	AddSequential(new DoNothing(.5));
-	AddSequential(new Move(90, .5, 4));
+	AddSequential(new Move(90, 1, 3));
 }

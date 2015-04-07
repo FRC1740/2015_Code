@@ -44,16 +44,16 @@ OI::OI()
     // JoystickButton *threeAxis_6 = new JoystickButton(threeAxisJoystick, 6);		// Thumb (right of d_pad)
 
     // The 7, 9 & 11 buttons are mapped to the Lifter level (1, 2, 3) commands
-    JoystickButton *threeAxis_7 = new JoystickButton(threeAxisJoystick, 7);		// Left side/10_O'Clock Outer
+//    JoystickButton *threeAxis_7 = new JoystickButton(threeAxisJoystick, 7);		// Left side/10_O'Clock Outer
     // JoystickButton *threeAxis_8 = new JoystickButton(threeAxisJoystick, 8);		// Left side/9_O'Clock Outer
-    JoystickButton *threeAxis_9 = new JoystickButton(threeAxisJoystick, 9);		// Left side/10_O'Clock Inner
+//    JoystickButton *threeAxis_9 = new JoystickButton(threeAxisJoystick, 9);		// Left side/10_O'Clock Inner
 	// JoystickButton *threeAxis_10 = new JoystickButton(threeAxisJoystick, 10);		// Left side/9_O'Clock Inner
-    JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
+//    JoystickButton *threeAxis_11 = new JoystickButton(threeAxisJoystick, 11);	// Left side/8_O'Clock Outer
 	// JoystickButton *threeAxis_12 = new JoystickButton(threeAxisJoystick, 12);		// Left side/8_O'Clock Inner
 
-    threeAxis_7->WhenPressed(new CalibrateLifter());
-    threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_ONE));
-    threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_TWO));
+//    threeAxis_7->WhenPressed(new CalibrateLifter());
+ //   threeAxis_9->WhenPressed(new MoveToLevel(LEVEL_ONE));
+   // threeAxis_11->WhenPressed(new MoveToLevel(LEVEL_TWO));
 
 
     /*
