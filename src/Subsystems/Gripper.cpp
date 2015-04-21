@@ -7,16 +7,18 @@ Gripper::Gripper() : Subsystem("Gripper")
 	isOpen = true;
 }
 
-void Gripper::Grab()
+bool Gripper::Grab()
 {
 	s0->Set(true);
 	s1->Set(false);
 	isOpen = false;
+	return true;
 }
 
-void Gripper::Release()
+bool Gripper::Release()
 {
 	isOpen = true;
 	s0->Set(false);
 	s1->Set(true);
+	return true;
 }

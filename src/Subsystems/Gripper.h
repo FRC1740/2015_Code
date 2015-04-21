@@ -14,8 +14,8 @@ private:
 public:
 	Gripper();
 	bool isOpen;
-	void Grab();
-	void Release();
+	bool Grab();
+	bool Release();
 };
 
 #endif
