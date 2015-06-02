@@ -58,9 +58,9 @@ private:
 		autonomouschooser->AddObject("Lift TrashCan, Skate and Push Box", new PickUpAndPushAuto());
 		autonomouschooser->AddObject("Pickup just the trashcan and drive OVER BUMP", new TrashCan(4.0));
 		autonomouschooser->AddObject("Pickup just the trashcan and drive NO BUMP", new TrashCan(3.8));
-		autonomouschooser->AddObject("Testing move", new Move(270, .3, 5));
+//		autonomouschooser->AddObject("Testing move", new Move(270, .3, 5));
 		autonomouschooser->AddDefault("Do Nothing", new DoNothing(15));
-		autonomouschooser->AddObject("Yellow Totes", new YellowToteAuto());
+//		autonomouschooser->AddObject("Yellow Totes", new YellowToteAuto());
 		SmartDashboard::PutData("Autonomous", autonomouschooser);
 
 		lw = LiveWindow::GetInstance();
