@@ -1,6 +1,6 @@
 #include "CommandBase.h"
 
-CommandBase::CommandBase(const char *name) : Command(name) {
+CommandBase::CommandBase(const char *name) : Command(name) {// AJ was here
 }
 
 CommandBase::CommandBase() : Command() {
