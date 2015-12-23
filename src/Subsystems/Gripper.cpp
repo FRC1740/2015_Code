@@ -9,14 +9,14 @@ Gripper::Gripper() : Subsystem("Gripper")
 
 void Gripper::Grab()
 {
-	s0->Set(true);
-	s1->Set(false);
+	s0->Set(false);
+	s1->Set(true);
 	isOpen = false;
 }
 
 void Gripper::Release()
 {
 	isOpen = true;
-	s0->Set(false);
-	s1->Set(true);
+	s0->Set(true);
+	s1->Set(false);
 }
